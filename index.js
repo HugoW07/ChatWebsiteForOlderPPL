@@ -1,7 +1,6 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
-const userRouter = require("/users");
 
 const app = express();
 
@@ -27,14 +26,14 @@ const requireAuth = (req, res, next) => {
   next();
 };
 
-app.use("/users", userRouter);
+const users = [];
 
 app.get("/", requireAuth, (req, res) => {
-  res.render("home", { user: req.session.user });
+  res.render("users/home", { user: req.session.user });
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("users/login");
 });
 
 app.post("/login", (req, res) => {
@@ -59,7 +58,32 @@ app.post("/logout", (req, res) => {
   });
 });
 
-const users = [];
+app.get("/register", (req, res) => {
+  res.render("users/register");
+});
+
+app.post("/register", (req, res) => {
+  try {
+    const { username, password } = req.body;
+    if (users.some((u) => u.username === username)) {
+      return res.status(400).send("Username already exists");
+    }
+    const newUser = {
+      id: Date.now().toString(),
+      username,
+      password,
+    };
+    users.push(newUser);
+    res.redirect("/login");
+  } catch (error) {
+    res.status(500).send("Error registering user");
+  }
+});
+
+app.get("/profile", requireAuth, (req, res) => {
+  const user = users.find((u) => u.id === req.session.userId);
+  res.render("users/profile", { user });
+});
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");

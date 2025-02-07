@@ -1,128 +1,46 @@
-.left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 1em;
-  margin-left: 20px;
-}
-
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-right: 1em;
-}
-
-header {
-  height: 12vh;
-  width: 100vw;
-  font-size: 1.5em;
-  font-weight: 700;
+.navbar {
   background-color: white;
-  position: sticky;
-  top: 0px;
-  z-index: 10;
-  filter: drop-shadow(white 1rem 1rem 10px);
+  color: var(--rich-black);
+  padding: 1rem;
 }
 
-.headerer {
+.navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.homeButton {
-  background-color: lightgreen;
-  border-radius: 25px;
-  height: 8vh;
-  width: 8vw;
+.navbar-logo {
+  width: 80px;
+}
+
+.navbar-links {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
-.registerButton {
-  background-color: lightgreen;
-  border-radius: 25px;
-  height: 8vh;
-  width: 8vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.searchButton {
-  background-color: lightgreen;
-  border-radius: 25px;
-  height: 8vh;
-  width: 8vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.aboutButton {
-  background-color: lightgreen;
-  border-radius: 25px;
-  height: 8vh;
-  width: 8vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-a {
-  color: var(--black);
-  margin: 2px;
+.navbar-links a {
+  color: var(--rich-black);
   text-decoration: none;
+  font-weight: 500;
 }
 
-.left img {
-  transition: all 200ms ease-in-out;
+.navbar-links a:hover {
+  text-decoration: underline;
 }
 
-.left img:hover {
-  transform: scale(1);
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: var(--rich-black);
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.left .homeButton {
-  transition: all 200ms ease-in-out;
-}
-
-.left .homeButton:hover {
-  transform: scale(1.2);
-}
-
-.left .registerButton {
-  transition: all 200ms ease-in-out;
-}
-
-.left .registerButton:hover {
-  transform: scale(1.2);
-}
-
-.left .searchButton {
-  transition: all 200ms ease-in-out;
-}
-
-.left .searchButton:hover {
-  transform: scale(1.2);
-}
-
-.right .aboutButton {
-  transition: all 200ms ease-in-out;
-}
-
-.right .aboutButton:hover {
-  transform: scale(1.2);
-}
-
-:root {
-  --RichBlack: #0d1321;
-  --PrussianBlue: #1d2d44;
-  --PaynesGray: #3e5c76;
-  --SilverLakeBlue: #748cab;
-  --EggShell: #f0ebd8;
+.logout-button:hover {
+  text-decoration: underline;
 }

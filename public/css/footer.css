@@ -1,22 +1,32 @@
 .main-footer {
-  background: white;
-  padding: 1.5rem;
-  margin-top: auto;
+  background-color: white;
+  color: var(--rich-black);
+  padding: 1rem;
+  text-align: center;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .footer-logo {
-  width: 60px;
+  width: 80px;
 }
 
 .footer-info {
-  color: var(--paynes-gray);
-  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-info p {
+  margin: 0;
+  font-size: 0.9rem;
 }
