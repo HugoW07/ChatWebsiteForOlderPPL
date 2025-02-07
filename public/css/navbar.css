@@ -2,6 +2,7 @@
   background-color: white;
   color: var(--rich-black);
   padding: 1rem;
+  user-select: none;
 }
 
 .navbar-content {
@@ -43,4 +44,10 @@
 
 .logout-button:hover {
   text-decoration: underline;
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  padding: 0%;
 }

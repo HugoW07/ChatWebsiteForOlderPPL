@@ -85,6 +85,10 @@ app.get("/profile", requireAuth, (req, res) => {
   res.render("users/profile", { user });
 });
 
+app.get("/forgot-password", (req, res) => {
+  res.render("users/forgot-password");
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
