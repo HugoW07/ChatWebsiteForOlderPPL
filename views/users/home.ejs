@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - VintageChat</title>
+  <link rel="stylesheet" href="/css/navbar.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/scripts/home.js" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-content">
+      <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
+      <div class="navbar-links">
+        <a href="/">Home</a>
+        <a href="/users/profile">Profile</a>
+        <form action="/logout" method="post" style="display:inline;">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <main class="content">
+    <h1>Welcome, <%= user.username %>!</h1>
+    <p>This is your home page.</p>
+  </main>
+  <footer class="main-footer">
+    <div class="footer-content">
+      <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
+      <div class="footer-info">
+        <p class="contributor">Contributor: Hugo Wilinski</p>
+        <p>&copy; 2024 VintageChat. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

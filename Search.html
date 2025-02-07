@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/navbar.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <script src="/scripts/home.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="headerer">
+      <div class="left">
+        <img src="/assets/VintageChat.png" alt="logo" width="100" height="100" class="siteLogo" />
+        <a href="index.html">
+          <div class="homeButton">
+            <span class="material-symbols-outlined"></span>
+            <h2>Home</h2>
+          </div>
+        </a>
+        <a href="Register.html">
+          <div class="registerButton">
+            <span class="material-symbols-outlined"></span>
+            <h2>Register</h2>
+          </div>
+        </a>
+        </a>
+        <a href="Search.html">
+          <div class="searchButton">
+            <span class="material-symbols-outlined"></span>
+            <h2>Search</h2>
+          </div>
+        </a>
+      </div>
+      <div class="right">
+        <a href="about.html">
+          <div class="aboutButton">
+            <span class="material-symbols-outlined"></span>
+            <h2>About</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="bodyContainer">
+    <div class="leftSideMenu">
+      <img src="/assets/No Avatar.png" alt="Avatar" width="50" height="50" class="avatarIcon">
+      <div id="nameHolder">
+        <h2 id="userName"></h2>
+      </div>
+      <div>
+        <ol class="profile">
+          <form id="nameEditor" action="/users" method="post">
+            <input type="text" name="fName" id="UserFName" placeholder="First Name" required><br><br>
+            <input type="text" name="lName" id="UserLName" placeholder="Last Name" required><br><br>
+            <input type="date" name="bDate" id="UserBDate" required><br><br>
+            <input type="checkbox" id="TermOfServices" name="TermOfServices" value="Terms">
+            <label for="TermOfServices"> I agree to the terms of service</label>
+            <input type="submit" value="Submit">
+          </form>
+        </ol>
+      </div>
+    </div>
+
+    <div class="mainMenu">
+    </div>
+
+    <div class="rightSideMenu">
+      <div class="rightSideMenuNavBar">
+        <h1 class="contactsHeader">Contacts</h1>
+        <img src="/assets/Search Icon.png" alt="Search" width="30" height="30" class="searchIcon">
+      </div>
+      <div>
+        <ol class="friends">
+          <form id="friendEditor">
+            <input type="text" name="fName" id="fName" placeholder="First Name" value="Hugo" required><br><br>
+            <input type="text" name="lName" id="lName" placeholder="Last Name" value="Wilinski" required><br><br>
+            <input type="date" name="bDate" id="bDate" value="2007-04-16" required><br><br>
+            <input type="submit" value="Add">
+          </form>
+        </ol>
+      </div>
+      <div>
+        <ol id="friendHolder">
+          <table id="contactTable">
+            <thead class="formInfo">
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birthdate</th>
+                <th>Days Till Birthday</th>
+                <th class="dropdown">
+                  <button onclick="myFunction()" class="dropbtn">Sort By</button>
+                  <div id="myDropdown" class="dropdown-content">
+                    <button id="sortByName">Sort by First Name</button>
+                    <button id="sortByLastName">Sort by Last Name</button>
+                    <button id="sortByBirthdate">Sort by Birthdate</button>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="formInfo">
+            </tbody>
+          </table>
+        </ol>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
