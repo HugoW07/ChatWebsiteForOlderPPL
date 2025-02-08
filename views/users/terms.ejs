@@ -4,44 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register - VintageChat</title>
+  <title>Home - VintageChat</title>
   <link rel="stylesheet" href="/css/navbar.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/terms.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="/scripts/home.js" defer></script>
 </head>
 
 <body>
-  <main class="auth-container">
-    <div class="auth-card">
-      <img src="/assets/VintageChat.png" alt="Logo" class="auth-logo">
-      <h1 class="auth-title">Create New Account</h1>
-      <form class="auth-form" action="/register" method="post">
-        <div class="form-group">
-          <input type="text" name="username" id="username" required>
-          <label for="username">Username</label>
-        </div>
-        <div class="form-group">
-          <input type="password" name="password" id="password" required>
-          <label for="password">Password</label>
-        </div>
-        <div class="form-options">
-          <label class="checkbox-container">
-            <input type="checkbox" class="form-check-input" name="terms_of_service">
-            <span class="form-check-label">
-              I've read and agree to the
-              <a href="/terms">terms of service</a>
-            </span>
-          </label>
-        </div>
-        <button type="submit" class="auth-button">Register</button>
-        <div class="auth-links">
-          <a href="/forgot-password">Forgotten password?</a>
-          <a href="/login">Already have an account?</a>
-        </div>
-      </form>
+  <header class="navbar">
+    <div class="navbar-content">
+      <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
+      <div class="navbar-links">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <form action="/logout" method="post" style="display:inline;">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
     </div>
+  </header>
+  <main class="content">
+    <h1>Welcome, <%= user.username %>!</h1>
+    <p>This is your home page.</p>
   </main>
   <footer class="main-footer">
     <div class="footer-content">
