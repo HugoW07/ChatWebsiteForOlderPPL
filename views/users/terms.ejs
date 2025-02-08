@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - VintageChat</title>
+  <title>Terms of Service - VintageChat</title>
   <link rel="stylesheet" href="/css/navbar.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/terms.css" />
@@ -16,18 +16,75 @@
     <div class="navbar-content">
       <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
       <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <form action="/logout" method="post" style="display:inline;">
-          <button type="submit" class="logout-button">Logout</button>
-        </form>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
       </div>
     </div>
   </header>
+
   <main class="content">
-    <h1>Welcome, <%= user.username %>!</h1>
-    <p>This is your home page.</p>
+    <section class="terms-section">
+      <h1 class="terms-title">Terms of Service</h1>
+      <p class="terms-description">
+        Welcome to VintageChat! These Terms of Service ("Terms") govern your use of our platform. By accessing or using
+        our services, you agree to comply with these terms.
+      </p>
+
+      <div class="terms-block">
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By using VintageChat, you confirm that you accept these Terms and agree to comply with them. If you do not
+          agree to these Terms, you must not use our services.
+        </p>
+      </div>
+
+      <div class="terms-block">
+        <h2>2. Eligibility</h2>
+        <p>
+          You must be at least 60 years old to use VintageChat. By using our services, you represent and warrant that
+          you meet this age requirement.
+        </p>
+      </div>
+
+      <div class="terms-block">
+        <h2>3. User Conduct</h2>
+        <p>
+          You agree to use VintageChat only for lawful purposes and in a way that does not infringe on the rights of
+          others. Prohibited activities include:
+        </p>
+        <ul>
+          <li>Posting harmful, abusive, or offensive content.</li>
+          <li>Impersonating others or providing false information.</li>
+          <li>Engaging in any activity that disrupts the service.</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2>4. Intellectual Property</h2>
+        <p>
+          All content, trademarks, and other intellectual property on VintageChat are owned by us or our licensors. You
+          may not use, reproduce, or distribute any content without our prior written consent.
+        </p>
+      </div>
+
+      <div class="terms-block">
+        <h2>5. Limitation of Liability</h2>
+        <p>
+          We are not liable for any damages arising from your use of VintageChat. This includes direct, indirect,
+          incidental, or consequential damages.
+        </p>
+      </div>
+
+      <div class="terms-block">
+        <h2>6. Changes to Terms</h2>
+        <p>
+          We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon
+          posting. Your continued use of VintageChat constitutes acceptance of the updated Terms.
+        </p>
+      </div>
+    </section>
   </main>
+
   <footer class="main-footer">
     <div class="footer-content">
       <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">

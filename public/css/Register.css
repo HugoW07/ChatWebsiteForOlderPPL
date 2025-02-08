@@ -161,6 +161,23 @@ input[type="checkbox"]:checked ~ .checkmark {
   text-decoration: underline;
 }
 
+.popup-message {
+  display: none;
+  margin-top: 1.1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #dddfe2;
+  color: var(--rich-black);
+  font-size: 0.875rem;
+}
+
+.popup-message.error {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
 /* Responsive Design */
 @media (max-width: 480px) {
   .auth-card {

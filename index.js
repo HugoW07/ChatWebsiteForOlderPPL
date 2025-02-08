@@ -66,7 +66,7 @@ app.post("/register", (req, res) => {
   try {
     const { username, password } = req.body;
     if (users.some((u) => u.username === username)) {
-      return res.status(400).send("Username already exists");
+      return res.status(400).json({ error: "Username already exists" });
     }
     const newUser = {
       id: Date.now().toString(),
@@ -74,9 +74,9 @@ app.post("/register", (req, res) => {
       password,
     };
     users.push(newUser);
-    res.redirect("/login");
+    res.json({ message: "Registration successful!" });
   } catch (error) {
-    res.status(500).send("Error registering user");
+    res.status(500).json({ error: "Error registering user" });
   }
 });
 
