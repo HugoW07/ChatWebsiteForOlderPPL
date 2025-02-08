@@ -74,7 +74,7 @@ app.post("/register", (req, res) => {
       password,
     };
     users.push(newUser);
-    res.json({ message: "Registration successful!" });
+    res.redirect("/login");
   } catch (error) {
     res.status(500).json({ error: "Error registering user" });
   }
