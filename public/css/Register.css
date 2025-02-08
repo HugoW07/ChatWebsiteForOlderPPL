@@ -107,6 +107,18 @@ body {
   position: relative;
 }
 
+.form-check-label {
+  font-size: 1rem;
+}
+
+.terms-link {
+  color: var(--lime-green);
+  text-decoration: none;
+}
+.terms-link:hover {
+  text-decoration: underline;
+}
+
 input[type="checkbox"]:checked ~ .checkmark {
   background-color: var(--light-green);
   border-color: var(--light-green);
