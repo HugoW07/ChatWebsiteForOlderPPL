@@ -180,20 +180,19 @@ input[type="checkbox"]:checked ~ .checkmark {
 }
 
 /* Password visibilty */
-
 .password-wrap {
   position: relative;
 }
 
 #toggle-password {
   position: absolute;
-	top: 50%;
-	right: 1rem;
-	transform: translateY(-50%);
-	cursor: pointer;
-	width: 1.5rem;
-	display: flex;
-	align-items: center;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   padding: none;
