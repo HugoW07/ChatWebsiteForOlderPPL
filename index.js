@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 
@@ -17,7 +18,22 @@ app.use(
     },
   })
 );
+
 app.set("view engine", "ejs");
+
+let users = [];
+const USERS_FILE = path.join(__dirname, "users.json");
+
+try {
+  const data = fs.readFileSync(USERS_FILE, "utf8");
+  users = JSON.parse(data);
+} catch (error) {
+  console.log("No existing user data found, starting fresh.");
+}
+
+const saveUsersToFile = () => {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2), "utf8");
+};
 
 const requireAuth = (req, res, next) => {
   if (!req.session.userId) {
@@ -25,8 +41,6 @@ const requireAuth = (req, res, next) => {
   }
   next();
 };
-
-const users = [];
 
 app.get("/", requireAuth, (req, res) => {
   res.render("users/home", { user: req.session.user });
@@ -65,15 +79,21 @@ app.get("/register", (req, res) => {
 app.post("/register", (req, res) => {
   try {
     const { username, password } = req.body;
+
     if (users.some((u) => u.username === username)) {
       return res.status(400).json({ error: "Username already exists" });
     }
+
     const newUser = {
       id: Date.now().toString(),
       username,
       password,
     };
+
     users.push(newUser);
+
+    saveUsersToFile();
+
     res.redirect("/login");
   } catch (error) {
     res.status(500).json({ error: "Error registering user" });
@@ -88,6 +108,7 @@ app.get("/profile", requireAuth, (req, res) => {
 app.get("/forgot-password", (req, res) => {
   res.render("users/forgot-password");
 });
+
 app.get("/terms", (req, res) => {
   res.render("users/terms");
 });
