@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const showPwBtn = document.querySelector("#toggle-password");
+  const showPwIcon = showPwBtn.querySelector("img");
+  const pwInput = document.querySelector("#password");
+  const confirmPasswordInput = document.querySelector("#confirm-password");
+
+  // Toggle password visibility for both fields
+  showPwBtn.addEventListener("click", () => {
+    const isPasswordVisible = pwInput.type === "text";
+
+    // Toggle the type of both password fields
+    pwInput.type = isPasswordVisible ? "password" : "text";
+    confirmPasswordInput.type = isPasswordVisible ? "password" : "text";
+
+    // Update the icon based on visibility
+    showPwIcon.src = isPasswordVisible
+      ? "/assets/Visibility.svg"
+      : "/assets/Visibility_off.svg";
+  });
+});
+
+/*document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
   const popupMessage = document.getElementById("popupMessage");
 
@@ -33,4 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
         popupMessage.style.display = "block";
       });
   });
-});
+}); */

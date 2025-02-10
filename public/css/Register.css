@@ -62,6 +62,7 @@ body {
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  width: 24.125rem;
 }
 
 .form-group input:focus {
@@ -176,6 +177,31 @@ input[type="checkbox"]:checked ~ .checkmark {
 .popup-message.error {
   border-color: #e74c3c;
   color: #e74c3c;
+}
+
+/* Password visibilty */
+
+.password-wrap {
+  position: relative;
+}
+
+#toggle-password {
+  position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+	width: 1.5rem;
+	display: flex;
+	align-items: center;
+  background: none;
+  border: none;
+  padding: none;
+}
+
+#toggle-passwd img {
+  width: 100%;
+  height: auto;
 }
 
 /* Responsive Design */

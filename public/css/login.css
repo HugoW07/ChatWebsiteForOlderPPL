@@ -62,6 +62,7 @@ body {
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  width: 24.125rem;
 }
 
 .form-group input:focus {
