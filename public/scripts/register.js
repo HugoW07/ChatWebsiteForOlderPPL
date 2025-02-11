@@ -3,16 +3,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const showPwIcon = showPwBtn.querySelector("img");
   const pwInput = document.querySelector("#password");
   const confirmPasswordInput = document.querySelector("#confirm-password");
+  const registerForm = document.querySelector("#registerForm");
+  const popupMessage = document.querySelector("#popupMessage");
 
   showPwBtn.addEventListener("click", () => {
     const isPasswordVisible = pwInput.type === "text";
-
     pwInput.type = isPasswordVisible ? "password" : "text";
     confirmPasswordInput.type = isPasswordVisible ? "password" : "text";
-
     showPwIcon.src = isPasswordVisible
       ? "/assets/Visibility.svg"
       : "/assets/Visibility_off.svg";
+  });
+
+  function validatePasswords() {
+    if (pwInput.value !== confirmPasswordInput.value) {
+      popupMessage.textContent = "Passwords do not match!";
+      popupMessage.classList.add("error");
+      popupMessage.style.display = "block";
+      return false;
+    } else {
+      popupMessage.style.display = "none";
+      return true;
+    }
+  }
+
+  registerForm.addEventListener("submit", function (event) {
+    if (!validatePasswords()) {
+      event.preventDefault();
+    }
   });
 });
 
