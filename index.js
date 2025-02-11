@@ -113,6 +113,10 @@ app.get("/terms", (req, res) => {
   res.render("users/terms");
 });
 
+app.get("/settings", (req, res) => {
+  res.render("users/settings");
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });

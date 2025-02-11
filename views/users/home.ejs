@@ -15,15 +15,28 @@
 <body>
   <header class="navbar">
     <div class="navbar-content">
-      <a href="/" >
+      <a href="/">
         <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
       </a>
       <div class="navbar-links">
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <form action="/logout" method="post" style="display:inline;">
-          <button type="submit" class="logout-button">Logout</button>
-        </form>
+        <div class="navbar-item">
+          <a href="/">
+            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Home</span>
+        </div>
+        <div class="navbar-item">
+          <a href="/profile">
+            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Profile</span>
+        </div>
+        <div class="navbar-item">
+          <a href="/settings">
+            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Settings</span>
+        </div>
       </div>
     </div>
   </header>
