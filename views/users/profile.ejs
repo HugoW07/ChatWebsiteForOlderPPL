@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +10,13 @@
   <link rel="stylesheet" href="/css/footer.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header class="navbar">
     <div class="navbar-content">
-      <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
+      <a href="/">
+        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
+      </a>
       <div class="navbar-links">
         <a href="/">Home</a>
         <a href="/profile">Profile</a>
@@ -24,7 +28,8 @@
   </header>
   <main class="content">
     <h1>Your Profile</h1>
-    <p>Username: <%= user.username %></p>
+    <p>Username: <%= user.username %>
+    </p>
   </main>
   <footer class="main-footer">
     <div class="footer-content">
@@ -36,4 +41,5 @@
     </div>
   </footer>
 </body>
+
 </html>
