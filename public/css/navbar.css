@@ -1,11 +1,10 @@
 .navbar {
-  background-color: white;
-  color: var(--rich-black);
+  background-color: var(--navbar-background);
+  color: var(--text-color);
   padding: 1rem 0;
   user-select: none;
   font-family: "Inter", sans-serif;
 }
-
 .navbar-content {
   display: flex;
   justify-content: space-between;
@@ -14,42 +13,36 @@
   margin: 0 0;
   padding: 0 1rem;
 }
-
 .navbar-logo {
   width: 80px;
   margin-left: 1rem;
+  filter: none !important;
 }
-
 .navbar-links {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-right: 1rem;
 }
-
 .navbar-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
-
 .navbar-icon {
   width: 24px;
   height: 24px;
 }
-
 .navbar-label {
   font-size: 0.875rem;
-  color: var(--rich-black);
+  color: var(--text-color);
   text-align: center;
 }
-
 .navbar-links a {
-  color: var(--rich-black);
+  color: var(--text-color);
   text-decoration: none;
 }
-
 .navbar-links a:hover .navbar-label {
   text-decoration: underline;
 }
