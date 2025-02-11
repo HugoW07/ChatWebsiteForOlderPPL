@@ -6,13 +6,25 @@
   --silver-lake-blue: #748cab;
   --light-green: #94fbab;
   --lime-green: #32cd32;
+  /* Light Mode Colors */
+  --background-color: #f0f2f5;
+  --text-color: var(--rich-black);
+  --card-background: white;
+  --navbar-background: white;
+  --footer-background: white;
+  /* Dark Mode Colors */
+  --dark-background-color: #121212;
+  --dark-text-color: #e0e0e0;
+  --dark-card-background: #1e1e1e;
+  --dark-navbar-background: #1e1e1e;
+  --dark-footer-background: #1e1e1e;
 }
 
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
-  background-color: #f0f2f5;
-  color: var(--rich-black);
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -24,7 +36,7 @@ body {
 }
 
 .terms-section {
-  background: white;
+  background: var(--card-background);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -32,7 +44,7 @@ body {
 
 .terms-title {
   font-size: 2rem;
-  color: var(--rich-black);
+  color: var(--text-color);
   margin-bottom: 1rem;
 }
 
@@ -49,7 +61,7 @@ body {
 
 .terms-block h2 {
   font-size: 1.5rem;
-  color: var(--rich-black);
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
@@ -72,8 +84,50 @@ body {
   .terms-title {
     font-size: 1.75rem;
   }
-
   .terms-block h2 {
     font-size: 1.25rem;
   }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  --background-color: var(--dark-background-color);
+  --text-color: var(--dark-text-color);
+  --card-background: var(--dark-card-background);
+  --navbar-background: var(--dark-navbar-background);
+  --footer-background: var(--dark-footer-background);
+}
+
+body.dark-mode .terms-section {
+  background: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-title {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-description {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-block h2 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-block p {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-block ul {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .terms-block li {
+  color: var(--dark-text-color);
+}
+
+/* Dark Mode Icon Styles */
+body.dark-mode .navbar-icon {
+  filter: invert(1);
 }

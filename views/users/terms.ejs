@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/terms.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/scripts/darkMode.js" defer></script>
 </head>
 
 <body>
@@ -19,8 +20,30 @@
         <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
       </a>
       <div class="navbar-links">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        <div class="navbar-item">
+          <a href="#" id="darkModeToggle">
+            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
+          </a>
+          <span class="navbar-label">Dark Mode</span>
+        </div>
+        <div class="navbar-item">
+          <a href="/">
+            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Home</span>
+        </div>
+        <div class="navbar-item">
+          <a href="/profile">
+            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Profile</span>
+        </div>
+        <div class="navbar-item">
+          <a href="/settings">
+            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Settings</span>
+        </div>
       </div>
     </div>
   </header>
@@ -82,7 +105,7 @@
         <h2>6. Changes to Terms</h2>
         <p>
           We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon
-          posting. Your continued use of VintageChat constitutes acceptance of the updated Terms.
+          posting. Your continued use of VintageChat constitutes acceptance of the updated Terms. I own you.
         </p>
       </div>
     </section>
