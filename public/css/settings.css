@@ -9,9 +9,9 @@
   --dark-blue: #00008b;
   --dark-prussian-blue: #1a2c42;
   --dark-light-green: #50fa7b;
-  --dark-dark-blue: #00005c;
+  --dark-dark-blue: #00005c; /* Darker blue for hover effect */
   --red: #ff3b30;
-  --dark-red: #cc0000;
+  --dark-red: #cc0000; /* Darker red for hover effect */
   /* Light Mode Colors */
   --background-color: #f0f2f5;
   --text-color: var(--rich-black);
@@ -66,7 +66,8 @@ body {
 /* Form Styles */
 .form-group {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased margin for better spacing */
+  margin-right: 1rem;
 }
 
 .form-group input,
@@ -77,10 +78,6 @@ body {
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
-}
-
-.form-group input {
-  width: 24.125rem;
 }
 
 .form-group input:focus,
@@ -101,8 +98,7 @@ body {
 }
 
 .form-group input:focus ~ label,
-.form-group input:not(:placeholder-shown) ~ label,
-.form-group .form-select:focus ~ label {
+.form-group input:not(:placeholder-shown) ~ label {
   top: -8px;
   left: 8px;
   font-size: 0.75rem;
@@ -119,6 +115,41 @@ body {
   background-size: 10px 6px;
 }
 
+/* Privacy Section */
+.privacy-section {
+  margin-top: 2rem;
+}
+
+.privacy-section .form-group {
+  position: relative;
+}
+
+.privacy-section .form-group label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #65676b;
+  pointer-events: none;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.privacy-section .form-group .form-select {
+  padding-left: 1rem;
+  position: relative;
+  z-index: 0;
+}
+
+.privacy-section .form-group .form-select:focus + label,
+.privacy-section .form-group .form-select:valid + label {
+  top: -8px;
+  left: 8px;
+  font-size: 0.75rem;
+  background: white;
+  padding: 0 4px;
+}
+
 /* Button */
 .auth-button {
   width: 100%;
@@ -132,7 +163,6 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .auth-button:hover {
@@ -236,6 +266,16 @@ body.dark-mode .delete-button:hover {
   background-color: var(--red);
 }
 
+body.dark-mode .auth-card .form-group label {
+  color: #bdc3c7;
+}
+
+body.dark-mode .auth-card .form-group .form-select:focus + label,
+body.dark-mode .auth-card .form-group .form-select:valid + label {
+  background: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
 /* Responsive Design */
 @media (max-width: 480px) {
   .auth-card {
@@ -243,6 +283,9 @@ body.dark-mode .delete-button:hover {
   }
   .auth-title {
     font-size: 1.25rem;
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
   }
   .form-group input,
   .form-select {

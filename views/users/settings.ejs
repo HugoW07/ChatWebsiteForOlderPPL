@@ -67,16 +67,18 @@
         </div>
         <button type="submit" class="auth-button">Save Changes</button>
       </form>
-      <form class="auth-form" id="privacyForm" action="/update-privacy" method="post">
-        <div class="form-group">
-          <label for="privacy"></label>
-          <select id="privacy" name="privacy" class="form-select">
-            <option value="public" <%=user.privacy==='public' ? 'selected' : '' %>>Public</option>
-            <option value="private" <%=user.privacy==='private' ? 'selected' : '' %>>Private</option>
-          </select>
-        </div>
-        <button type="submit" class="auth-button">Save Changes</button>
-      </form>
+      <div class="privacy-section">
+        <form class="auth-form" id="privacyForm" action="/update-privacy" method="post">
+          <div class="form-group">
+            <select id="privacy" name="privacy" class="form-select" required>
+              <option value="public" <%=user.privacy==='public' ? 'selected' : '' %>>Public</option>
+              <option value="private" <%=user.privacy==='private' ? 'selected' : '' %>>Private</option>
+            </select>
+            <label for="privacy">Privacy:</label>
+          </div>
+          <button type="submit" class="auth-button">Save Changes</button>
+        </form>
+      </div>
       <form class="auth-form" id="logoutForm" action="/logout" method="post">
         <button type="submit" class="logout-button">Logout</button>
       </form>
