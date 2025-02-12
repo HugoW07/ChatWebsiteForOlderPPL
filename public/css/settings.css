@@ -6,14 +6,18 @@
   --silver-lake-blue: #748cab;
   --light-green: #94fbab;
   --lime-green: #32cd32;
-
+  --dark-blue: #00008b;
+  --dark-prussian-blue: #1a2c42;
+  --dark-light-green: #50fa7b;
+  --dark-dark-blue: #00005c;
+  --red: #ff3b30;
+  --dark-red: #cc0000;
   /* Light Mode Colors */
   --background-color: #f0f2f5;
   --text-color: var(--rich-black);
   --card-background: white;
   --navbar-background: white;
   --footer-background: white;
-
   /* Dark Mode Colors */
   --dark-background-color: #121212;
   --dark-text-color: #e0e0e0;
@@ -40,6 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  user-select: none;
 }
 
 .auth-card {
@@ -52,53 +57,124 @@ body {
   text-align: center;
 }
 
-.auth-logo {
-  width: 80px;
-  margin-bottom: 1rem;
-}
-
 .auth-title {
   font-size: 1.5rem;
   color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
-/* Content Styles */
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-.content h1 {
-  font-size: 2rem;
-  color: var(--text-color);
+/* Form Styles */
+.form-group {
+  position: relative;
   margin-bottom: 1rem;
 }
 
-.content p {
-  font-size: 1.2rem;
-  color: var(--paynes-gray);
+.form-group input,
+.form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
 }
 
-/* Navbar and Footer Styles */
-.navbar {
-  background-color: var(--navbar-background);
-  color: var(--text-color);
-  padding: 1rem;
-  user-select: none;
-  font-family: "Inter", sans-serif;
+.form-group input {
+  width: 24.125rem;
 }
 
-.footer {
-  background-color: var(--footer-background);
-  color: var(--text-color);
-  padding: 1rem;
-  font-family: "Inter", sans-serif;
+.form-group input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--light-green);
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #65676b;
+  pointer-events: none;
+  transition: all 0.2s;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group .form-select:focus ~ label {
+  top: -8px;
+  left: 8px;
+  font-size: 0.75rem;
+  background: white;
+  padding: 0 4px;
+}
+
+/* Select Styles */
+.form-select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="#65676b" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 6px;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--light-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-button:hover {
+  background-color: var(--lime-green);
+}
+
+/* Logout Button */
+.logout-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--red);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.logout-button:hover {
+  background-color: var(--dark-red);
+}
+
+/* Delete Button */
+.delete-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--red);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.delete-button:hover {
+  background-color: var(--dark-red);
 }
 
 /* Dark Mode Styles */
@@ -110,7 +186,66 @@ body.dark-mode {
   --footer-background: var(--dark-footer-background);
 }
 
-body.dark-mode .navbar-logo,
-body.dark-mode .navbar-icon {
-  filter: invert(1);
+body.dark-mode .auth-card {
+  background: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .auth-title {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-select {
+  border-color: var(--dark-card-background);
+  background-color: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-select:focus {
+  border-color: var(--dark-light-green);
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+body.dark-mode .form-group label {
+  color: #bdc3c7;
+}
+
+body.dark-mode .auth-button {
+  background-color: var(--dark-prussian-blue);
+}
+
+body.dark-mode .auth-button:hover {
+  background-color: var(--dark-light-green);
+}
+
+body.dark-mode .logout-button {
+  background-color: var(--dark-red);
+}
+
+body.dark-mode .logout-button:hover {
+  background-color: var(--red);
+}
+
+body.dark-mode .delete-button {
+  background-color: var(--dark-red);
+}
+
+body.dark-mode .delete-button:hover {
+  background-color: var(--red);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+  .auth-title {
+    font-size: 1.25rem;
+  }
+  .form-group input,
+  .form-select {
+    width: 100%;
+  }
 }

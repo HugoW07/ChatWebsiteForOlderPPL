@@ -86,6 +86,8 @@ app.post("/register", (req, res) => {
       id: Date.now().toString(),
       username,
       password,
+      email: "",
+      privacy: "public",
     };
     users.push(newUser);
     saveUsersToFile();
@@ -108,8 +110,49 @@ app.get("/terms", (req, res) => {
   res.render("users/terms");
 });
 
-app.get("/settings", (req, res) => {
-  res.render("users/settings");
+app.get("/settings", requireAuth, (req, res) => {
+  const user = users.find((u) => u.id === req.session.userId);
+  res.render("users/settings", { user });
+});
+
+app.post("/update-profile", requireAuth, (req, res) => {
+  const { username, email } = req.body;
+  const userIndex = users.findIndex((u) => u.id === req.session.userId);
+  if (userIndex !== -1) {
+    users[userIndex].username = username;
+    users[userIndex].email = email;
+    saveUsersToFile();
+    res.redirect("/settings");
+  } else {
+    res.status(404).send("User not found");
+  }
+});
+
+app.post("/update-privacy", requireAuth, (req, res) => {
+  const { privacy } = req.body;
+  const userIndex = users.findIndex((u) => u.id === req.session.userId);
+  if (userIndex !== -1) {
+    users[userIndex].privacy = privacy;
+    saveUsersToFile();
+    res.redirect("/settings");
+  } else {
+    res.status(404).send("User not found");
+  }
+});
+
+app.post("/delete-account", requireAuth, (req, res) => {
+  const userIndex = users.findIndex((u) => u.id === req.session.userId);
+  if (userIndex !== -1) {
+    users.splice(userIndex, 1);
+    saveUsersToFile();
+    req.session.destroy((err) => {
+      if (err) return res.redirect("/");
+      res.clearCookie("connect.sid");
+      res.redirect("/login");
+    });
+  } else {
+    res.status(404).send("User not found");
+  }
 });
 
 app.get("/help", (req, res) => {

@@ -6,14 +6,15 @@
   --silver-lake-blue: #748cab;
   --light-green: #94fbab;
   --lime-green: #32cd32;
-
+  --dark-blue: #00008b;
+  --dark-prussian-blue: #1a2c42;
+  --dark-light-green: #50fa7b;
   /* Light Mode Colors */
   --background-color: #f0f2f5;
   --text-color: var(--rich-black);
   --card-background: white;
   --navbar-background: white;
   --footer-background: white;
-
   /* Dark Mode Colors */
   --dark-background-color: #121212;
   --dark-text-color: #e0e0e0;
@@ -23,7 +24,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Verdana", sans-serif;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -31,36 +32,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-}
-
-/* Auth Container */
-.auth-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.auth-card {
-  background: var(--card-background);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
-}
-
-.auth-logo {
-  width: 80px;
-  margin-bottom: 1rem;
-}
-
-.auth-title {
-  font-size: 1.5rem;
-  color: var(--text-color);
-  margin-bottom: 1.5rem;
 }
 
 /* Content Styles */
@@ -74,31 +45,46 @@ body {
   text-align: center;
 }
 
-.content h1 {
+.profile-card {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.profile-card h1 {
   font-size: 2rem;
   color: var(--text-color);
   margin-bottom: 1rem;
 }
 
-.content p {
+.profile-card p {
   font-size: 1.2rem;
   color: var(--paynes-gray);
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
-/* Navbar and Footer Styles */
-.navbar {
-  background-color: var(--navbar-background);
-  color: var(--text-color);
-  padding: 1rem;
-  user-select: none;
-  font-family: "Inter", sans-serif;
+.logout-form {
+  margin-top: 1rem;
 }
 
-.footer {
-  background-color: var(--footer-background);
-  color: var(--text-color);
-  padding: 1rem;
-  font-family: "Inter", sans-serif;
+.logout-button {
+  background-color: var(--prussian-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: var(--lime-green);
 }
 
 /* Dark Mode Styles */
@@ -110,7 +96,48 @@ body.dark-mode {
   --footer-background: var(--dark-footer-background);
 }
 
-body.dark-mode .navbar-logo,
-body.dark-mode .navbar-icon {
-  filter: invert(1);
+body.dark-mode .profile-card {
+  background: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .profile-card h1 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .profile-card p {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .logout-button {
+  background-color: var(--dark-prussian-blue);
+}
+
+body.dark-mode .logout-button:hover {
+  background-color: var(--dark-light-green);
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+    max-width: 300px;
+  }
+
+  .profile-card h1 {
+    font-size: 1.75rem;
+  }
+
+  .profile-card p {
+    font-size: 1rem;
+  }
+
+  .logout-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }

@@ -53,12 +53,38 @@
       </div>
     </div>
   </header>
-  <main class="content">
-    <h1>Welcome!</h1>
-    <p>This is the settings.</p>
-    <form action="/logout" method="post" style="display:inline;">
-      <button type="submit" class="logout-button">Logout</button>
-    </form>
+  <main class="auth-container">
+    <div class="auth-card">
+      <h1 class="auth-title">Settings</h1>
+      <form class="auth-form" id="settingsForm" action="/update-profile" method="post">
+        <div class="form-group">
+          <input type="text" name="username" id="username" value="<%= user.username %>" required>
+          <label for="username">Username</label>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" id="email" value="<%= user.email %>" required>
+          <label for="email">Email</label>
+        </div>
+        <button type="submit" class="auth-button">Save Changes</button>
+      </form>
+      <form class="auth-form" id="privacyForm" action="/update-privacy" method="post">
+        <div class="form-group">
+          <label for="privacy"></label>
+          <select id="privacy" name="privacy" class="form-select">
+            <option value="public" <%=user.privacy==='public' ? 'selected' : '' %>>Public</option>
+            <option value="private" <%=user.privacy==='private' ? 'selected' : '' %>>Private</option>
+          </select>
+        </div>
+        <button type="submit" class="auth-button">Save Changes</button>
+      </form>
+      <form class="auth-form" id="logoutForm" action="/logout" method="post">
+        <button type="submit" class="logout-button">Logout</button>
+      </form>
+      <form class="auth-form" id="deleteForm" action="/delete-account" method="post"
+        onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+        <button type="submit" class="delete-button">Delete Account</button>
+      </form>
+    </div>
   </main>
   <footer class="main-footer">
     <div class="footer-content">

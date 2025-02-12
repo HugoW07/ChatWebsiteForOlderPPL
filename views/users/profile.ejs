@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/navbar.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/profile.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
   <script src="/scripts/darkMode.js" defer></script>
 </head>
 
@@ -54,12 +54,14 @@
     </div>
   </header>
   <main class="content">
-    <h1>Your Profile</h1>
-    <p>Username: <%= user.username %>
-    </p>
-    <form action="/logout" method="post" style="display:inline;">
-      <button type="submit" class="logout-button">Logout</button>
-    </form>
+    <div class="profile-card">
+      <h1>Your Profile</h1>
+      <p>Username: <%= user.username %>
+      </p>
+      <form action="/logout" method="post" class="logout-form">
+        <button type="submit" class="logout-button">Logout</button>
+      </form>
+    </div>
   </main>
   <footer class="main-footer">
     <div class="footer-content">
