@@ -6,6 +6,20 @@
   --silver-lake-blue: #748cab;
   --light-green: #94fbab;
   --lime-green: #32cd32;
+
+  /* Light Mode Colors */
+  --background-color: #f0f2f5;
+  --text-color: var(--rich-black);
+  --card-background: white;
+  --navbar-background: white;
+  --footer-background: white;
+
+  /* Dark Mode Colors */
+  --dark-background-color: #121212;
+  --dark-text-color: #e0e0e0;
+  --dark-card-background: #1e1e1e;
+  --dark-navbar-background: #1e1e1e;
+  --dark-footer-background: #1e1e1e;
 }
 
 body {
