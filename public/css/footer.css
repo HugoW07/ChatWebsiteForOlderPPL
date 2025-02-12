@@ -5,6 +5,7 @@
   padding: 1rem;
   text-align: center;
   user-select: none;
+  width: 100%;
 }
 
 .footer-content {
@@ -18,7 +19,7 @@
 }
 
 .footer-logo {
-  width: 80px;
+  width: 8rem;
   filter: var(--logo-filter, none);
 }
 
@@ -33,4 +34,17 @@
   margin: 0;
   font-size: 0.9rem;
   color: var(--text-color);
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  .footer-content {
+    padding: 0.5rem 1rem;
+  }
+  .footer-logo {
+    width: 6rem;
+  }
+  .footer-info p {
+    font-size: 0.8rem;
+  }
 }

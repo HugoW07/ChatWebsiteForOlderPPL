@@ -2,11 +2,11 @@ const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const fs = require("fs");
-
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   session({
     secret: "your-secret-key",
@@ -79,21 +79,16 @@ app.get("/register", (req, res) => {
 app.post("/register", (req, res) => {
   try {
     const { username, password } = req.body;
-
     if (users.some((u) => u.username === username)) {
       return res.status(400).json({ error: "Username already exists" });
     }
-
     const newUser = {
       id: Date.now().toString(),
       username,
       password,
     };
-
     users.push(newUser);
-
     saveUsersToFile();
-
     res.redirect("/login");
   } catch (error) {
     res.status(500).json({ error: "Error registering user" });
@@ -115,6 +110,18 @@ app.get("/terms", (req, res) => {
 
 app.get("/settings", (req, res) => {
   res.render("users/settings");
+});
+
+app.get("/help", (req, res) => {
+  res.render("users/help");
+});
+
+app.get("/search", (req, res) => {
+  const query = req.query.query.toLowerCase();
+  const results = users.filter((user) =>
+    user.username.toLowerCase().includes(query)
+  );
+  res.json(results);
 });
 
 app.listen(3000, () => {
