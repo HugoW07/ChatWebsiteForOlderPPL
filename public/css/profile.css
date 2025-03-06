@@ -73,7 +73,7 @@ body {
 }
 
 .logout-button {
-  background-color: var(--prussian-blue);
+  background-color: var(--lime-green);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -84,7 +84,7 @@ body {
 }
 
 .logout-button:hover {
-  background-color: var(--lime-green);
+  background-color: var(--light-green);
 }
 
 /* Dark Mode Styles */

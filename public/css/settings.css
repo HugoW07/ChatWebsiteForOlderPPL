@@ -67,7 +67,7 @@ body {
 .form-group {
   position: relative;
   margin-bottom: 1.5rem; /* Increased margin for better spacing */
-  margin-right: 1rem;
+  width: 24.125rem;
 }
 
 .form-group input,
@@ -150,11 +150,15 @@ body {
   padding: 0 4px;
 }
 
+#privacy{
+  width: 24.125rem;
+}
+
 /* Button */
 .auth-button {
   width: 100%;
   padding: 12px;
-  background-color: var(--light-green);
+  background-color: var(--lime-green);
   color: white;
   border: none;
   border-radius: 6px;
@@ -166,14 +170,14 @@ body {
 }
 
 .auth-button:hover {
-  background-color: var(--lime-green);
+  background-color: var(--light-green);
 }
 
 /* Logout Button */
 .logout-button {
   width: 100%;
   padding: 12px;
-  background-color: var(--red);
+  background-color: var(--lime-green);
   color: white;
   border: none;
   border-radius: 6px;
@@ -185,7 +189,7 @@ body {
 }
 
 .logout-button:hover {
-  background-color: var(--dark-red);
+  background-color: var(--light-green);
 }
 
 /* Delete Button */

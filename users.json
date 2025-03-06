@@ -1,12 +1,16 @@
 [
   {
-    "id": "1739189905346",
+    "id": "1740739789753",
     "username": "HugoW",
-    "password": "123"
+    "password": "123",
+    "email": "",
+    "privacy": "public"
   },
   {
-    "id": "1739350475067",
+    "id": "1740739798265",
     "username": "c3llee",
-    "password": "321"
+    "password": "321",
+    "email": "",
+    "privacy": "public"
   }
 ]

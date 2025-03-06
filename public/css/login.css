@@ -133,7 +133,7 @@ input[type="checkbox"]:checked ~ .checkmark {
 .auth-button {
   width: 100%;
   padding: 12px;
-  background-color: var(--light-green);
+  background-color: var(--lime-green);
   color: white;
   border: none;
   border-radius: 6px;
@@ -145,7 +145,7 @@ input[type="checkbox"]:checked ~ .checkmark {
 }
 
 .auth-button:hover {
-  background-color: var(--lime-green);
+  background-color: var(--light-green);
 }
 
 /* Links */
