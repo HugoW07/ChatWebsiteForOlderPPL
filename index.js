@@ -8,7 +8,7 @@ const app = express(); // Skapa en ny instans av Express
 // Använd statiska filer från mappen "public"
 app.use(express.static(path.join(__dirname, "public")));
 
-// Parsa URL-kodade formulärdata
+// Parsa URL kodade formulärdata
 app.use(express.urlencoded({ extended: true }));
 
 // Konfigurera sessioner
