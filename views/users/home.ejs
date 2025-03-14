@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
   <script src="/scripts/darkMode.js" defer></script>
   <script src="/scripts/search.js" defer></script>
+  <script src="/scripts/postFeed.js" defer></script>
 </head>
 
 <body>
@@ -63,15 +64,27 @@
   <main class="content">
     <h1>Welcome, <%= user.username %>!</h1>
     <p>This is your home page.</p>
-    <div class="post-feed">
-      <div class="post-card">
-        <h2>Post Title 1</h2>
-        <p>This is the content of the first post. It provides information and updates about the latest features.</p>
-      </div>
-      <div class="post-card">
-        <h2>Post Title 2</h2>
-        <p>This is the content of the second post. It includes tips and tricks for using the platform effectively.</p>
-      </div>
+
+    <form id="postForm" enctype="multipart/form-data">
+      <textarea name="content" placeholder="Write something..." required></textarea>
+      <input type="file" name="image" accept="image/*">
+      <button type="submit">Post</button>
+    </form>
+
+    <div class="post-feed" id="postFeed">
+      <% posts.forEach(post=> { %>
+        <div class="post-card">
+          <h2>
+            <%= post.user %>
+          </h2>
+          <p>
+            <%= post.content %>
+          </p>
+          <% if (post.image) { %>
+            <img src="<%= post.image %>" alt="Post Image" class="post-image">
+            <% } %>
+        </div>
+        <% }) %>
     </div>
   </main>
   <footer class="main-footer">

@@ -58,6 +58,43 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Post Form Styles */
+#postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#postForm textarea {
+  width: 100%;
+  max-width: 800px;
+  height: 100px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--paynes-gray);
+  border-radius: 8px;
+  resize: vertical;
+}
+
+#postForm input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+#postForm button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--lime-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#postForm button:hover {
+  background-color: var(--dark-light-green);
+}
+
 /* Post Feed Container */
 .post-feed {
   width: 100%;
@@ -87,6 +124,14 @@ body {
   line-height: 1.6;
 }
 
+/* Post Image Styles */
+.post-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   --background-color: var(--dark-background-color);
@@ -107,6 +152,14 @@ body.dark-mode .post-card h2 {
 
 body.dark-mode .post-card p {
   color: var(--dark-text-color);
+}
+
+body.dark-mode #postForm button {
+  background-color: var(--dark-light-green);
+}
+
+body.dark-mode #postForm button:hover {
+  background-color: var(--lime-green);
 }
 
 /* Media Queries */
@@ -137,5 +190,14 @@ body.dark-mode .post-card p {
 
   .post-card p {
     font-size: 0.9rem;
+  }
+
+  #postForm textarea {
+    width: 100%;
+    height: 80px;
+  }
+
+  #postForm button {
+    padding: 0.5rem 1rem;
   }
 }
