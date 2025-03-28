@@ -99,12 +99,12 @@ body.dark-mode .navbar {
   color: var(--dark-text-color);
 }
 
-body.dark-mode .navbar-logo {
+body.dark-mode .navbar-icon {
   filter: invert(1);
 }
 
 body.dark-mode .search-bar {
-  border-color: var(--dark-card-background);
+  border-color: var(--light-green);
   background-color: var(--dark-card-background);
   color: var(--dark-text-color);
 }
@@ -115,7 +115,7 @@ body.dark-mode .search-bar:focus {
 }
 
 body.dark-mode .navbar-links a {
-  color: var(--dark-text-color);
+  color: var(--text-color);
 }
 
 body.dark-mode .navbar-links a:hover .navbar-label {

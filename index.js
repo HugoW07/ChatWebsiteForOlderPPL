@@ -237,7 +237,7 @@ app.get("/api/posts", (req, res) => {
   res.json(posts);
 });
 
-// Skapa ett nytt inlägg - FIXAD VERSION med multer
+// Skapa ett nytt inlägg med multer
 app.post("/api/posts", requireAuth, upload.single("image"), (req, res) => {
   try {
     // req.file innehåller information om den uppladdade filen

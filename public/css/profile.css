@@ -114,7 +114,7 @@ body.dark-mode .logout-button {
 }
 
 body.dark-mode .logout-button:hover {
-  background-color: var(--dark-light-green);
+  background-color: var(--lime-green);
 }
 
 /* Media Queries */

@@ -19,18 +19,17 @@
       <a href="/">
         <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
       </a>
+      <div class="navbar-search-container">
+        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
+        <div id="searchResults" class="search-results hidden">
+        </div>
+      </div>
       <div class="navbar-links">
         <div class="navbar-item">
           <a href="#" id="darkModeToggle">
             <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
           </a>
           <span class="navbar-label">Dark Mode</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
         </div>
         <div class="navbar-item">
           <a href="/">
@@ -45,6 +44,12 @@
           <span class="navbar-label">Profile</span>
         </div>
         <div class="navbar-item">
+          <a href="/help">
+            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Help</span>
+        </div>
+        <div class="navbar-item">
           <a href="/settings">
             <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
           </a>
@@ -53,6 +58,7 @@
       </div>
     </div>
   </header>
+
   <main class="content">
     <h1>Welcome to the Help Center</h1>
     <p>Feel free to explore the sections below to find answers to your questions.</p>
@@ -75,6 +81,7 @@
       </div>
     </div>
   </main>
+
   <footer class="main-footer">
     <div class="footer-content">
       <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
@@ -84,6 +91,7 @@
       </div>
     </div>
   </footer>
+  
 </body>
 
 </html>

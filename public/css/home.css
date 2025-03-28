@@ -155,7 +155,7 @@ body.dark-mode .post-card p {
 }
 
 body.dark-mode #postForm button {
-  background-color: var(--dark-light-green);
+  background-color: var(--dark-prussian-blue);
 }
 
 body.dark-mode #postForm button:hover {

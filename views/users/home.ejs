@@ -35,12 +35,6 @@
           <span class="navbar-label">Dark Mode</span>
         </div>
         <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
-        </div>
-        <div class="navbar-item">
           <a href="/">
             <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
           </a>
@@ -53,6 +47,12 @@
           <span class="navbar-label">Profile</span>
         </div>
         <div class="navbar-item">
+          <a href="/help">
+            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
+          </a>
+          <span class="navbar-label">Help</span>
+        </div>
+        <div class="navbar-item">
           <a href="/settings">
             <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
           </a>
@@ -61,12 +61,13 @@
       </div>
     </div>
   </header>
+  
   <main class="content">
     <h1>Welcome, <%= user.username %>!</h1>
     <p>This is your home page.</p>
 
     <form id="postForm" enctype="multipart/form-data">
-      <textarea name="content" placeholder="Write something..." required></textarea>
+      <textarea name="content" placeholder="What's on your mind?"></textarea>
       <input type="file" name="image" accept="image/*">
       <button type="submit">Post</button>
     </form>
@@ -83,6 +84,9 @@
           <% if (post.image) { %>
             <img src="<%= post.image %>" alt="Post Image" class="post-image">
             <% } %>
+              <h2>
+                <%= post.createdAt %>
+              </h2>
         </div>
         <% }) %>
     </div>
