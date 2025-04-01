@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help - VintageChat</title>
+    <link rel="icon" href="/assets/VintageChat.png" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/help.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/scripts/darkMode.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help - VintageChat</title>
-  <link rel="icon" href="/assets/VintageChat.png" />
-  <link rel="stylesheet" href="/css/navbar.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/help.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
-  <script src="/scripts/darkMode.js" defer></script>
-</head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-content">
+        <a href="/">
+          <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <div class="navbar-search-container">
+          <input
+            type="text"
+            placeholder="Search for @users"
+            class="search-bar"
+            id="searchBar"
+          />
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+        <div class="navbar-links">
+          <div class="navbar-item">
+            <a href="#" id="darkModeToggle">
+              <img
+                src="/assets/Dark_mode.svg"
+                alt="Dark Mode"
+                class="navbar-icon"
+                id="themeIcon"
+              />
+            </a>
+            <span class="navbar-label">Dark Mode</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/">
+              <img src="/assets/Home.svg" alt="Home" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Home</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/profile">
+              <img
+                src="/assets/Profile.svg"
+                alt="Profile"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Profile</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/help">
+              <img src="/assets/Help.svg" alt="Help" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Help</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/settings">
+              <img
+                src="/assets/Settings.svg"
+                alt="Settings"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Settings</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<body>
-  <header class="navbar">
-    <div class="navbar-content">
-      <a href="/">
-        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
-      </a>
-      <div class="navbar-search-container">
-        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
-        <div id="searchResults" class="search-results hidden">
+    <main class="content">
+      <h1>Welcome to the Help Center</h1>
+      <p>
+        Feel free to explore the sections below to find answers to your
+        questions.
+      </p>
+      <div class="help-sections">
+        <div class="help-card">
+          <h2>Getting Started</h2>
+          <p>Learn how to sign up and get started with VintageChat.</p>
+        </div>
+        <div class="help-card">
+          <h2>User Guide</h2>
+          <p>Explore the features and functionalities of VintageChat.</p>
+        </div>
+        <div class="help-card">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+          <p>Find answers to common questions about VintageChat.</p>
+        </div>
+        <div class="help-card">
+          <h2>Contact Support</h2>
+          <p>Get in touch with our support team for assistance.</p>
         </div>
       </div>
-      <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="#" id="darkModeToggle">
-            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
-          </a>
-          <span class="navbar-label">Dark Mode</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/">
-            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Home</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/profile">
-            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Profile</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/settings">
-            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Settings</span>
-        </div>
-      </div>
-    </div>
-  </header>
+    </main>
 
-  <main class="content">
-    <h1>Welcome to the Help Center</h1>
-    <p>Feel free to explore the sections below to find answers to your questions.</p>
-    <div class="help-sections">
-      <div class="help-card">
-        <h2>Getting Started</h2>
-        <p>Learn how to sign up and get started with VintageChat.</p>
+    <footer class="main-footer">
+      <div class="footer-content">
+        <img src="/assets/VintageChat.png" alt="logo" class="footer-logo" />
+        <div class="footer-info">
+          <p class="contributor">Contributor: Hugo Wilinski</p>
+          <p>&copy; 2025 VintageChat. All rights reserved.</p>
+        </div>
       </div>
-      <div class="help-card">
-        <h2>User Guide</h2>
-        <p>Explore the features and functionalities of VintageChat.</p>
-      </div>
-      <div class="help-card">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <p>Find answers to common questions about VintageChat.</p>
-      </div>
-      <div class="help-card">
-        <h2>Contact Support</h2>
-        <p>Get in touch with our support team for assistance.</p>
-      </div>
-    </div>
-  </main>
-
-  <footer class="main-footer">
-    <div class="footer-content">
-      <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
-      <div class="footer-info">
-        <p class="contributor">Contributor: Hugo Wilinski</p>
-        <p>&copy; 2025 VintageChat. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  
-</body>
-
+    </footer>
+  </body>
 </html>

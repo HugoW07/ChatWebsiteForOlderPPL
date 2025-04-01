@@ -1,105 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - VintageChat</title>
+    <link rel="icon" href="/assets/VintageChat.png" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/search.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/scripts/darkMode.js" defer></script>
+    <script src="/scripts/search.js" defer></script>
+    <script src="/scripts/postFeed.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - VintageChat</title>
-  <link rel="icon" href="/assets/VintageChat.png" />
-  <link rel="stylesheet" href="/css/navbar.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/home.css" />
-  <link rel="stylesheet" href="/css/search.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
-  <script src="/scripts/darkMode.js" defer></script>
-  <script src="/scripts/search.js" defer></script>
-  <script src="/scripts/postFeed.js" defer></script>
-</head>
-
-<body>
-  <header class="navbar">
-    <div class="navbar-content">
-      <a href="/">
-        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
-      </a>
-      <div class="navbar-search-container">
-        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
-        <div id="searchResults" class="search-results hidden">
+  <body>
+    <header class="navbar">
+      <div class="navbar-content">
+        <a href="/">
+          <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <div class="navbar-search-container">
+          <input
+            type="text"
+            placeholder="Search for @users"
+            class="search-bar"
+            id="searchBar"
+          />
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+        <div class="navbar-links">
+          <div class="navbar-item">
+            <a href="#" id="darkModeToggle">
+              <img
+                src="/assets/Dark_mode.svg"
+                alt="Dark Mode"
+                class="navbar-icon"
+                id="themeIcon"
+              />
+            </a>
+            <span class="navbar-label">Dark Mode</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/">
+              <img src="/assets/Home.svg" alt="Home" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Home</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/profile">
+              <img
+                src="/assets/Profile.svg"
+                alt="Profile"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Profile</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/help">
+              <img src="/assets/Help.svg" alt="Help" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Help</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/settings">
+              <img
+                src="/assets/Settings.svg"
+                alt="Settings"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Settings</span>
+          </div>
         </div>
       </div>
-      <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="#" id="darkModeToggle">
-            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
-          </a>
-          <span class="navbar-label">Dark Mode</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/">
-            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Home</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/profile">
-            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Profile</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/settings">
-            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Settings</span>
-        </div>
-      </div>
-    </div>
-  </header>
-  
-  <main class="content">
-    <h1>Welcome, <%= user.username %>!</h1>
-    <p>This is your home page.</p>
+    </header>
 
-    <form id="postForm" enctype="multipart/form-data">
-      <textarea name="content" placeholder="What's on your mind?"></textarea>
-      <input type="file" name="image" accept="image/*">
-      <button type="submit">Post</button>
-    </form>
+    <main class="content">
+      <h1>Welcome, <%= user.username %>!</h1>
+      <p>This is your home page.</p>
 
-    <div class="post-feed" id="postFeed">
-      <% posts.forEach(post=> { %>
+      <form id="postForm" enctype="multipart/form-data">
+        <textarea name="content" placeholder="What's on your mind?"></textarea>
+        <input type="file" name="image" accept="image/*" />
+        <button type="submit">Post</button>
+      </form>
+
+      <div class="post-feed" id="postFeed">
+        <% posts.forEach(post=> { %>
         <div class="post-card">
-          <h2>
-            <%= post.user %>
-          </h2>
-          <p>
-            <%= post.content %>
-          </p>
+          <h2><%= post.user %></h2>
+          <p><%= post.content %></p>
           <% if (post.image) { %>
-            <img src="<%= post.image %>" alt="Post Image" class="post-image">
-            <% } %>
-              <h2>
-                <%= post.createdAt %>
-              </h2>
+          <img src="<%= post.image %>" alt="Post Image" class="post-image" />
+          <% } %>
+          <h2><%= post.createdAt %></h2>
         </div>
         <% }) %>
-    </div>
-  </main>
-  <footer class="main-footer">
-    <div class="footer-content">
-      <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
-      <div class="footer-info">
-        <p class="contributor">Contributor: Hugo Wilinski</p>
-        <p>&copy; 2025 VintageChat. All rights reserved.</p>
       </div>
-    </div>
-  </footer>
-</body>
-
+    </main>
+    <footer class="main-footer">
+      <div class="footer-content">
+        <img src="/assets/VintageChat.png" alt="logo" class="footer-logo" />
+        <div class="footer-info">
+          <p class="contributor">Contributor: Hugo Wilinski</p>
+          <p>&copy; 2025 VintageChat. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

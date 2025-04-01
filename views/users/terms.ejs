@@ -1,136 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - VintageChat</title>
+    <link rel="icon" href="/assets/VintageChat.png" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/terms.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/scripts/darkMode.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service - VintageChat</title>
-  <link rel="icon" href="/assets/VintageChat.png" />
-  <link rel="stylesheet" href="/css/navbar.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/terms.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="/scripts/darkMode.js" defer></script>
-</head>
-
-<body>
-  <header class="navbar">
-    <div class="navbar-content">
-      <a href="/">
-        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
-      </a>
-      <div class="navbar-search-container">
-        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
-        <div id="searchResults" class="search-results hidden">
+  <body>
+    <header class="navbar">
+      <div class="navbar-content">
+        <a href="/">
+          <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <div class="navbar-search-container">
+          <input
+            type="text"
+            placeholder="Search for @users"
+            class="search-bar"
+            id="searchBar"
+          />
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+        <div class="navbar-links">
+          <div class="navbar-item">
+            <a href="#" id="darkModeToggle">
+              <img
+                src="/assets/Dark_mode.svg"
+                alt="Dark Mode"
+                class="navbar-icon"
+                id="themeIcon"
+              />
+            </a>
+            <span class="navbar-label">Dark Mode</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/">
+              <img src="/assets/Home.svg" alt="Home" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Home</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/profile">
+              <img
+                src="/assets/Profile.svg"
+                alt="Profile"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Profile</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/help">
+              <img src="/assets/Help.svg" alt="Help" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Help</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/settings">
+              <img
+                src="/assets/Settings.svg"
+                alt="Settings"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Settings</span>
+          </div>
         </div>
       </div>
-      <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="#" id="darkModeToggle">
-            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
-          </a>
-          <span class="navbar-label">Dark Mode</span>
+    </header>
+
+    <main class="content">
+      <section class="terms-section">
+        <h1 class="terms-title">Terms of Service</h1>
+        <p class="terms-description">
+          Welcome to VintageChat! These Terms of Service ("Terms") govern your
+          use of our platform. By accessing or using our services, you agree to
+          comply with these terms.
+        </p>
+
+        <div class="terms-block">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By using VintageChat, you confirm that you accept these Terms and
+            agree to comply with them. If you do not agree to these Terms, you
+            must not use our services.
+          </p>
         </div>
-        <div class="navbar-item">
-          <a href="/">
-            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Home</span>
+
+        <div class="terms-block">
+          <h2>2. Eligibility</h2>
+          <p>
+            You must be at least 60 years old to use VintageChat. By using our
+            services, you represent and warrant that you meet this age
+            requirement.
+          </p>
         </div>
-        <div class="navbar-item">
-          <a href="/profile">
-            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Profile</span>
+
+        <div class="terms-block">
+          <h2>3. User Conduct</h2>
+          <p>
+            You agree to use VintageChat only for lawful purposes and in a way
+            that does not infringe on the rights of others. Prohibited
+            activities include:
+          </p>
+          <ul>
+            <li>Posting harmful, abusive, or offensive content.</li>
+            <li>Impersonating others or providing false information.</li>
+            <li>Engaging in any activity that disrupts the service.</li>
+          </ul>
         </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
+
+        <div class="terms-block">
+          <h2>4. Intellectual Property</h2>
+          <p>
+            All content, trademarks, and other intellectual property on
+            VintageChat are owned by us or our licensors. You may not use,
+            reproduce, or distribute any content without our prior written
+            consent.
+          </p>
         </div>
-        <div class="navbar-item">
-          <a href="/settings">
-            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Settings</span>
+
+        <div class="terms-block">
+          <h2>5. Limitation of Liability</h2>
+          <p>
+            We are not liable for any damages arising from your use of
+            VintageChat. This includes direct, indirect, incidental, or
+            consequential damages.
+          </p>
+        </div>
+
+        <div class="terms-block">
+          <h2>6. Changes to Terms</h2>
+          <p>
+            We reserve the right to modify these Terms at any time. Any changes
+            will be effective immediately upon posting. Your continued use of
+            VintageChat constitutes acceptance of the updated Terms. I own you.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <img src="/assets/VintageChat.png" alt="logo" class="footer-logo" />
+        <div class="footer-info">
+          <p class="contributor">Contributor: Hugo Wilinski</p>
+          <p>&copy; 2025 VintageChat. All rights reserved.</p>
         </div>
       </div>
-    </div>
-  </header>
-
-  <main class="content">
-    <section class="terms-section">
-      <h1 class="terms-title">Terms of Service</h1>
-      <p class="terms-description">
-        Welcome to VintageChat! These Terms of Service ("Terms") govern your use of our platform. By accessing or using
-        our services, you agree to comply with these terms.
-      </p>
-
-      <div class="terms-block">
-        <h2>1. Acceptance of Terms</h2>
-        <p>
-          By using VintageChat, you confirm that you accept these Terms and agree to comply with them. If you do not
-          agree to these Terms, you must not use our services.
-        </p>
-      </div>
-
-      <div class="terms-block">
-        <h2>2. Eligibility</h2>
-        <p>
-          You must be at least 60 years old to use VintageChat. By using our services, you represent and warrant that
-          you meet this age requirement.
-        </p>
-      </div>
-
-      <div class="terms-block">
-        <h2>3. User Conduct</h2>
-        <p>
-          You agree to use VintageChat only for lawful purposes and in a way that does not infringe on the rights of
-          others. Prohibited activities include:
-        </p>
-        <ul>
-          <li>Posting harmful, abusive, or offensive content.</li>
-          <li>Impersonating others or providing false information.</li>
-          <li>Engaging in any activity that disrupts the service.</li>
-        </ul>
-      </div>
-
-      <div class="terms-block">
-        <h2>4. Intellectual Property</h2>
-        <p>
-          All content, trademarks, and other intellectual property on VintageChat are owned by us or our licensors. You
-          may not use, reproduce, or distribute any content without our prior written consent.
-        </p>
-      </div>
-
-      <div class="terms-block">
-        <h2>5. Limitation of Liability</h2>
-        <p>
-          We are not liable for any damages arising from your use of VintageChat. This includes direct, indirect,
-          incidental, or consequential damages.
-        </p>
-      </div>
-
-      <div class="terms-block">
-        <h2>6. Changes to Terms</h2>
-        <p>
-          We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon
-          posting. Your continued use of VintageChat constitutes acceptance of the updated Terms. I own you.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="main-footer">
-    <div class="footer-content">
-      <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
-      <div class="footer-info">
-        <p class="contributor">Contributor: Hugo Wilinski</p>
-        <p>&copy; 2025 VintageChat. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

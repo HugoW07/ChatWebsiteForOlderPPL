@@ -1,82 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - VintageChat</title>
+    <link rel="icon" href="/assets/VintageChat.png" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/scripts/darkMode.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile - VintageChat</title>
-  <link rel="icon" href="/assets/VintageChat.png" />
-  <link rel="stylesheet" href="/css/navbar.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/profile.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
-  <script src="/scripts/darkMode.js" defer></script>
-</head>
-
-<body>
-  <header class="navbar">
-    <div class="navbar-content">
-      <a href="/">
-        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
-      </a>
-      <div class="navbar-search-container">
-        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
-        <div id="searchResults" class="search-results hidden">
+  <body>
+    <header class="navbar">
+      <div class="navbar-content">
+        <a href="/">
+          <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <div class="navbar-search-container">
+          <input
+            type="text"
+            placeholder="Search for @users"
+            class="search-bar"
+            id="searchBar"
+          />
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+        <div class="navbar-links">
+          <div class="navbar-item">
+            <a href="#" id="darkModeToggle">
+              <img
+                src="/assets/Dark_mode.svg"
+                alt="Dark Mode"
+                class="navbar-icon"
+                id="themeIcon"
+              />
+            </a>
+            <span class="navbar-label">Dark Mode</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/">
+              <img src="/assets/Home.svg" alt="Home" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Home</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/profile">
+              <img
+                src="/assets/Profile.svg"
+                alt="Profile"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Profile</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/help">
+              <img src="/assets/Help.svg" alt="Help" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Help</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/settings">
+              <img
+                src="/assets/Settings.svg"
+                alt="Settings"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Settings</span>
+          </div>
         </div>
       </div>
-      <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="#" id="darkModeToggle">
-            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
-          </a>
-          <span class="navbar-label">Dark Mode</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/">
-            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Home</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/profile">
-            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Profile</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/settings">
-            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Settings</span>
+    </header>
+    <main class="content">
+      <div class="profile-card">
+        <h1>Your Profile</h1>
+        <p>Username: <%= user.username %></p>
+        <form action="/logout" method="post" class="logout-form">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
+    </main>
+    <footer class="main-footer">
+      <div class="footer-content">
+        <img src="/assets/VintageChat.png" alt="logo" class="footer-logo" />
+        <div class="footer-info">
+          <p class="contributor">Contributor: Hugo Wilinski</p>
+          <p>&copy; 2025 VintageChat. All rights reserved.</p>
         </div>
       </div>
-    </div>
-  </header>
-  <main class="content">
-    <div class="profile-card">
-      <h1>Your Profile</h1>
-      <p>Username: <%= user.username %>
-      </p>
-      <form action="/logout" method="post" class="logout-form">
-        <button type="submit" class="logout-button">Logout</button>
-      </form>
-    </div>
-  </main>
-  <footer class="main-footer">
-    <div class="footer-content">
-      <img src="/assets/VintageChat.png" alt="logo" class="footer-logo">
-      <div class="footer-info">
-        <p class="contributor">Contributor: Hugo Wilinski</p>
-        <p>&copy; 2025 VintageChat. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
