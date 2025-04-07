@@ -60,7 +60,7 @@ try {
   const data = fs.readFileSync(USERS_FILE, "utf8");
   users = JSON.parse(data);
 } catch (error) {
-  console.log("Inga befintliga användardata hittades, börjar från början.");
+  console.log("Inga användardata hittades, börjar från början.");
 }
 
 // Funktion för att spara användardata till filen "users.json"
@@ -76,7 +76,7 @@ try {
   const data = fs.readFileSync(POSTS_FILE, "utf8");
   posts = JSON.parse(data);
 } catch (error) {
-  console.log("Inga befintliga inläggsdata hittades, börjar från början.");
+  console.log("Inga inläggsdata hittades, börjar från början.");
 }
 
 // Funktion för att spara inläggsdata till filen "posts.json"
