@@ -1,0 +1,203 @@
+/* Base Styles */
+:root {
+  --rich-black: #0d1321;
+  --prussian-blue: #1d2d44;
+  --paynes-gray: #3e5c76;
+  --silver-lake-blue: #748cab;
+  --light-green: #94fbab;
+  --lime-green: #32cd32;
+  --dark-blue: #00008b;
+  --dark-prussian-blue: #1a2c42;
+  --dark-light-green: #50fa7b;
+  /* Light Mode Colors */
+  --background-color: #f0f2f5;
+  --text-color: var(--rich-black);
+  --card-background: white;
+  --navbar-background: white;
+  --footer-background: white;
+  /* Dark Mode Colors */
+  --dark-background-color: #121212;
+  --dark-text-color: #e0e0e0;
+  --dark-card-background: #1e1e1e;
+  --dark-navbar-background: #1e1e1e;
+  --dark-footer-background: #1e1e1e;
+}
+
+body {
+  font-family: "Verdana", sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Content Styles */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: var(--paynes-gray);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Post Form Styles */
+#postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#postForm textarea {
+  width: 100%;
+  max-width: 800px;
+  height: 100px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--paynes-gray);
+  border-radius: 8px;
+  resize: vertical;
+}
+
+#postForm input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+#postForm button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--lime-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#postForm button:hover {
+  background-color: var(--dark-light-green);
+}
+
+/* Post Feed Container */
+.post-feed {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.post-card {
+  background: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.post-card h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.post-card p {
+  font-size: 1rem;
+  color: var(--paynes-gray);
+  line-height: 1.6;
+}
+
+/* Post Image Styles */
+.post-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  --background-color: var(--dark-background-color);
+  --text-color: var(--dark-text-color);
+  --card-background: var(--dark-card-background);
+  --navbar-background: var(--dark-navbar-background);
+  --footer-background: var(--dark-footer-background);
+}
+
+body.dark-mode .post-card {
+  background: var(--dark-card-background);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .post-card h2 {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .post-card p {
+  color: var(--dark-text-color);
+}
+
+body.dark-mode #postForm button {
+  background-color: var(--dark-prussian-blue);
+}
+
+body.dark-mode #postForm button:hover {
+  background-color: var(--lime-green);
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .content h1 {
+    font-size: 1.75rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .post-feed {
+    padding: 0.5rem;
+  }
+
+  .post-card {
+    padding: 1rem;
+  }
+
+  .post-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .post-card p {
+    font-size: 0.9rem;
+  }
+
+  #postForm textarea {
+    width: 100%;
+    height: 80px;
+  }
+
+  #postForm button {
+    padding: 0.5rem 1rem;
+  }
+}
