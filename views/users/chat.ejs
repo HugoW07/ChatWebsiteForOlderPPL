@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help - VintageChat</title>
+    <title>Chat - VintageChat</title>
     <link rel="icon" href="/assets/VintageChat.png" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    <link rel="stylesheet" href="/css/help.css" />
+    <link rel="stylesheet" href="/css/chat.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/scripts/darkMode.js" defer></script>
+    <script src="/scripts/chat.js" defer></script>
+    <script src="/scripts/search.js" defer></script>
   </head>
 
   <body>
@@ -85,7 +88,61 @@
     </header>
 
     <main class="content">
-      
+      <div class="chat-container">
+        <div class="chat-sidebar">
+          <h2>Online Users</h2>
+          <ul id="online-users">
+          </ul>
+          <div class="chat-rooms">
+            <h2>Chat Rooms</h2>
+            <ul id="chat-rooms">
+              <li data-room="general" class="active">General</li>
+              <li data-room="announcements">Announcements</li>
+              <li data-room="support">Support</li>
+            </ul>
+          </div>
+        </div>
+        <div class="chat-main">
+          <div class="chat-header">
+            <h1 id="current-room">General</h1>
+            <p id="room-members"></p>
+          </div>
+          <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be dynamically populated here -->
+          </div>
+          <div class="chat-input-container">
+            <form id="chat-form">
+              <input
+                type="text"
+                id="chat-message"
+                placeholder="Type your message..."
+                autocomplete="off"
+              />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="chat-details">
+          <div class="user-details">
+            <h2>Your Info</h2>
+            <div class="user-info">
+              <p><strong>Username:</strong> <%= user.username %></p>
+              <p>
+                <strong>Status:</strong> <span id="user-status">Online</span>
+              </p>
+            </div>
+          </div>
+          <div class="room-details">
+            <h2>Room Details</h2>
+            <div id="room-description">
+              <p>
+                Welcome to the General chat room. This is a space for all users
+                to chat together.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="main-footer">

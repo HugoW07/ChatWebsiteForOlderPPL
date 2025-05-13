@@ -1,4 +1,6 @@
-/* Base Styles */
+/* CSS för chatt-sidan */
+
+/* Basformat från den befintliga CSS-filen */
 :root {
   --rich-black: #0d1321;
   --prussian-blue: #1d2d44;
@@ -21,6 +23,16 @@
   --dark-card-background: #1e1e1e;
   --dark-navbar-background: #1e1e1e;
   --dark-footer-background: #1e1e1e;
+  /* Chat-specific colors */
+  --message-own-bg: #dcf8c6;
+  --message-other-bg: #ffffff;
+  --chat-sidebar-bg: #ffffff;
+  --chat-input-bg: #ffffff;
+  --chat-input-border: #cccccc;
+  --chat-send-btn: var(--lime-green);
+  --chat-send-btn-hover: var(--dark-light-green);
+  --chat-room-active: #e6f7ff;
+  --chat-room-hover: #f5f5f5;
 }
 
 body {
@@ -34,102 +46,222 @@ body {
   overflow-x: hidden;
 }
 
-/* Content Styles */
+/* Huvudinnehåll */
 .content {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
+  justify-content: flex-start;
+  padding: 1rem;
 }
 
-.content h1 {
-  font-size: 2rem;
-  color: var(--text-color);
-  margin-bottom: 1rem;
+/* Chatt-container */
+.chat-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  width: 100%;
+  max-width: 1400px;
+  height: calc(100vh - 180px);
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.content p {
-  font-size: 1.2rem;
-  color: var(--paynes-gray);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-/* Post Form Styles */
-#postForm {
+/* Chatt-sidebar */
+.chat-sidebar {
+  background-color: var(--chat-sidebar-bg);
+  padding: 1rem;
+  border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
 }
 
-#postForm textarea {
-  width: 100%;
-  max-width: 800px;
-  height: 100px;
+.chat-sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.chat-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.chat-sidebar ul li {
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chat-sidebar ul li:hover {
+  background-color: var(--chat-room-hover);
+}
+
+.chat-sidebar ul li.active {
+  background-color: var(--chat-room-active);
+  font-weight: bold;
+}
+
+.chat-rooms {
+  margin-top: 1rem;
+}
+
+/* Huvud-chatt-området */
+.chat-main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background);
+}
+
+.chat-header {
   padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--paynes-gray);
-  border-radius: 8px;
-  resize: vertical;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-#postForm input[type="file"] {
-  margin-bottom: 1rem;
+.chat-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--text-color);
 }
 
-#postForm button {
-  padding: 0.75rem 1.5rem;
-  background-color: var(--lime-green);
+.chat-header p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0;
+  color: var(--paynes-gray);
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 80%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message-own {
+  align-self: flex-end;
+  background-color: var(--message-own-bg);
+  border-bottom-right-radius: 0;
+}
+
+.message-other {
+  align-self: flex-start;
+  background-color: var(--message-other-bg);
+  border-bottom-left-radius: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-sender {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.message-content {
+  margin: 0;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.chat-input-container {
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chat-message {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid var(--chat-input-border);
+  border-radius: 20px;
+  background-color: var(--chat-input-bg);
+  outline: none;
+  font-family: inherit;
+}
+
+#chat-form button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--chat-send-btn);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-#postForm button:hover {
-  background-color: var(--dark-light-green);
+#chat-form button:hover {
+  background-color: var(--chat-send-btn-hover);
 }
 
-/* Post Feed Container */
-.post-feed {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+/* Detaljer i sidofältet */
+.chat-details {
   padding: 1rem;
+  border-left: 1px solid #e0e0e0;
+  background-color: var(--chat-sidebar-bg);
+  display: flex;
+  flex-direction: column;
 }
 
-.post-card {
-  background: var(--card-background);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-.post-card h2 {
-  font-size: 1.5rem;
-  color: var(--text-color);
+.chat-details h2 {
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
-.post-card p {
-  font-size: 1rem;
+.user-details,
+.room-details {
+  margin-bottom: 1.5rem;
+}
+
+.user-info p,
+#room-description p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
   color: var(--paynes-gray);
-  line-height: 1.6;
 }
 
-/* Post Image Styles */
-.post-image {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
-  border-radius: 8px;
+#user-status {
+  color: var(--lime-green);
+  font-weight: bold;
+}
+
+/* Online användare */
+#online-users li {
+  display: flex;
+  align-items: center;
+}
+
+#online-users li::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--lime-green);
+  margin-right: 8px;
 }
 
 /* Dark Mode Styles */
@@ -137,67 +269,36 @@ body.dark-mode {
   --background-color: var(--dark-background-color);
   --text-color: var(--dark-text-color);
   --card-background: var(--dark-card-background);
-  --navbar-background: var(--dark-navbar-background);
-  --footer-background: var(--dark-footer-background);
+  --chat-sidebar-bg: var(--dark-card-background);
+  --chat-input-bg: var(--dark-card-background);
+  --chat-input-border: #444444;
+  --message-own-bg: #056162;
+  --message-other-bg: #262d31;
+  --chat-room-active: #1a374d;
+  --chat-room-hover: #2c3333;
 }
 
-body.dark-mode .post-card {
-  background: var(--dark-card-background);
-  color: var(--dark-text-color);
+/* Responsiv design */
+@media (max-width: 1200px) {
+  .chat-container {
+    grid-template-columns: 200px 1fr 200px;
+  }
 }
 
-body.dark-mode .post-card h2 {
-  color: var(--dark-text-color);
+@media (max-width: 900px) {
+  .chat-container {
+    grid-template-columns: 180px 1fr;
+  }
+  .chat-details {
+    display: none;
+  }
 }
 
-body.dark-mode .post-card p {
-  color: var(--dark-text-color);
-}
-
-body.dark-mode #postForm button {
-  background-color: var(--dark-prussian-blue);
-}
-
-body.dark-mode #postForm button:hover {
-  background-color: var(--lime-green);
-}
-
-/* Media Queries */
-@media (max-width: 500px) {
-  .content {
-    padding: 1rem;
+@media (max-width: 650px) {
+  .chat-container {
+    grid-template-columns: 1fr;
   }
-
-  .content h1 {
-    font-size: 1.75rem;
-  }
-
-  .content p {
-    font-size: 1rem;
-  }
-
-  .post-feed {
-    padding: 0.5rem;
-  }
-
-  .post-card {
-    padding: 1rem;
-  }
-
-  .post-card h2 {
-    font-size: 1.25rem;
-  }
-
-  .post-card p {
-    font-size: 0.9rem;
-  }
-
-  #postForm textarea {
-    width: 100%;
-    height: 80px;
-  }
-
-  #postForm button {
-    padding: 0.5rem 1rem;
+  .chat-sidebar {
+    display: none;
   }
 }
