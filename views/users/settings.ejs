@@ -15,49 +15,73 @@
 
 <body>
   <header class="navbar">
-    <div class="navbar-content">
-      <a href="/">
-        <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo">
-      </a>
-      <div class="navbar-search-container">
-        <input type="text" placeholder="Search for @users" class="search-bar" id="searchBar">
-        <div id="searchResults" class="search-results hidden">
+      <div class="navbar-content">
+        <a href="/">
+          <img src="/assets/VintageChat.png" alt="Logo" class="navbar-logo" />
+        </a>
+        <div class="navbar-search-container">
+          <input
+            type="text"
+            placeholder="Search for @users"
+            class="search-bar"
+            id="searchBar"
+          />
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+        <div class="navbar-links">
+          <div class="navbar-item">
+            <a href="#" id="darkModeToggle">
+              <img
+                src="/assets/Dark_mode.svg"
+                alt="Dark Mode"
+                class="navbar-icon"
+                id="themeIcon"
+              />
+            </a>
+            <span class="navbar-label">Dark Mode</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/">
+              <img src="/assets/Home.svg" alt="Home" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Home</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/chat">
+              <img src="/assets/Chat.svg" alt="Chat" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Chat</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/profile">
+              <img
+                src="/assets/Profile.svg"
+                alt="Profile"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Profile</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/help">
+              <img src="/assets/Help.svg" alt="Help" class="navbar-icon" />
+            </a>
+            <span class="navbar-label">Help</span>
+          </div>
+          <div class="navbar-item">
+            <a href="/settings">
+              <img
+                src="/assets/Settings.svg"
+                alt="Settings"
+                class="navbar-icon"
+              />
+            </a>
+            <span class="navbar-label">Settings</span>
+          </div>
         </div>
       </div>
-      <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="#" id="darkModeToggle">
-            <img src="/assets/Dark_mode.svg" alt="Dark Mode" class="navbar-icon" id="themeIcon">
-          </a>
-          <span class="navbar-label">Dark Mode</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/">
-            <img src="/assets/Home.svg" alt="Home" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Home</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/profile">
-            <img src="/assets/Profile.svg" alt="Profile" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Profile</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/help">
-            <img src="/assets/Help.svg" alt="Help" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Help</span>
-        </div>
-        <div class="navbar-item">
-          <a href="/settings">
-            <img src="/assets/Settings.svg" alt="Settings" class="navbar-icon">
-          </a>
-          <span class="navbar-label">Settings</span>
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
+    
   <main class="auth-container">
     <div class="auth-card">
       <h1 class="auth-title">Settings</h1>

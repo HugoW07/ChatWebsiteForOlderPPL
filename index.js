@@ -169,6 +169,11 @@ app.get("/terms", (req, res) => {
   res.render("users/terms");
 });
 
+app.get("/chat", requireAuth, (req, res) => {
+  const user = users.find((u) => u.id === req.session.userId);
+  res.render("users/chat", { user });
+});
+
 // Visa inställningssida, kräver autentisering
 app.get("/settings", requireAuth, (req, res) => {
   const user = users.find((u) => u.id === req.session.userId);
