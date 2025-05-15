@@ -274,6 +274,172 @@ app.post("/api/posts", requireAuth, upload.single("image"), (req, res) => {
   }
 });
 
+// Här lägger vi till nya konstanter för chatten
+const MESSAGES_FILE = path.join(__dirname, "messages.json");
+const ROOMS_FILE = path.join(__dirname, "rooms.json");
+
+// Läs in chattmeddelanden från filen "messages.json"
+let messages = {};
+try {
+  const data = fs.readFileSync(MESSAGES_FILE, "utf8");
+  messages = JSON.parse(data);
+} catch (error) {
+  console.log("Inga chattmeddelanden hittades, börjar från början.");
+  // Skapa grundstruktur för meddelanden per rum
+  messages = {
+    general: [],
+    announcements: [],
+    support: [],
+  };
+}
+
+// Funktion för att spara chattmeddelanden till filen "messages.json"
+const saveMessagesToFile = () => {
+  fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2), "utf8");
+};
+
+// Läs in rum från filen "rooms.json"
+let rooms = {};
+try {
+  const data = fs.readFileSync(ROOMS_FILE, "utf8");
+  rooms = JSON.parse(data);
+} catch (error) {
+  console.log("Inga rumdata hittades, börjar från början.");
+  // Skapa grundstruktur för rum
+  rooms = {
+    general: {
+      name: "General",
+      description:
+        "Welcome to the General chat room. This is a space for all users to chat together.",
+      members: [],
+    },
+    announcements: {
+      name: "Announcements",
+      description:
+        "Important updates and announcements from the VintageChat team.",
+      members: [],
+    },
+    support: {
+      name: "Support",
+      description:
+        "Need help? Ask your questions here and get support from our team and community.",
+      members: [],
+    },
+  };
+}
+
+// Funktion för att spara rumdata till filen "rooms.json"
+const saveRoomsToFile = () => {
+  fs.writeFileSync(ROOMS_FILE, JSON.stringify(rooms, null, 2), "utf8");
+};
+
+// Hålla reda på online-användare
+let onlineUsers = [];
+
+// API-routes för chat
+
+// Hämta meddelanden för ett specifikt rum
+app.get("/api/messages/:room", (req, res) => {
+  const room = req.params.room;
+  const since = req.query.since ? parseInt(req.query.since) : 0;
+
+  if (!messages[room]) {
+    return res.status(404).json({ error: "Rummet hittades inte" });
+  }
+
+  // Returnera endast meddelanden efter den angivna tidsstämpeln
+  const newMessages = messages[room].filter((msg) => {
+    return new Date(msg.timestamp).getTime() > since;
+  });
+
+  res.json(newMessages);
+});
+
+// Skicka ett nytt meddelande
+app.post("/api/messages", requireAuth, (req, res) => {
+  const { room, content } = req.body;
+  const user = req.session.user;
+
+  if (!room || !content) {
+    return res.status(400).json({ error: "Rum och innehåll krävs" });
+  }
+
+  if (!messages[room]) {
+    return res.status(404).json({ error: "Rummet hittades inte" });
+  }
+
+  const newMessage = {
+    id: Date.now().toString(),
+    username: user.username,
+    content,
+    timestamp: new Date().toISOString(),
+  };
+
+  messages[room].push(newMessage);
+
+  // Begränsa antalet meddelanden per rum för att undvika att filen blir för stor
+  if (messages[room].length > 100) {
+    messages[room] = messages[room].slice(-100);
+  }
+
+  saveMessagesToFile();
+
+  // Lägg till användaren som medlem i rummet om de inte redan är det
+  if (!rooms[room].members.includes(user.username)) {
+    rooms[room].members.push(user.username);
+    saveRoomsToFile();
+  }
+
+  res.json(newMessage);
+});
+
+// Hämta online-användare
+app.get("/api/users/online", (req, res) => {
+  // Rensa användare som inte varit aktiva på mer än 5 minuter
+  const fiveMinutesAgo = Date.now() - 5 * 60 * 1000;
+  onlineUsers = onlineUsers.filter((user) => user.lastActive > fiveMinutesAgo);
+
+  res.json(onlineUsers.map((user) => ({ username: user.username })));
+});
+
+// Uppdatera användarstatus
+app.post("/api/users/status", requireAuth, (req, res) => {
+  const { status } = req.body;
+  const user = req.session.user;
+
+  if (status === "online") {
+    // Uppdatera eller lägg till användaren i listan över online-användare
+    const existingUser = onlineUsers.find((u) => u.username === user.username);
+    if (existingUser) {
+      existingUser.lastActive = Date.now();
+    } else {
+      onlineUsers.push({
+        username: user.username,
+        lastActive: Date.now(),
+      });
+    }
+  } else if (status === "offline") {
+    // Ta bort användaren från listan över online-användare
+    onlineUsers = onlineUsers.filter((u) => u.username !== user.username);
+  }
+
+  res.json({ success: true });
+});
+
+// Hämta medlemmar i ett rum
+app.get("/api/rooms/:room/members", (req, res) => {
+  const room = req.params.room;
+
+  if (!rooms[room]) {
+    return res.status(404).json({ error: "Rummet hittades inte" });
+  }
+
+  res.json({
+    count: rooms[room].members.length,
+    members: rooms[room].members,
+  });
+});
+
 // Servera uppladdade filer
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 

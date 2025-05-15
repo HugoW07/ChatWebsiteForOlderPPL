@@ -1,0 +1,19 @@
+{
+  "general": {
+    "name": "General",
+    "description": "Welcome to the General chat room. This is a space for all users to chat together.",
+    "members": [
+      "HugoW"
+    ]
+  },
+  "announcements": {
+    "name": "Announcements",
+    "description": "Important updates and announcements from the VintageChat team.",
+    "members": []
+  },
+  "support": {
+    "name": "Support",
+    "description": "Need help? Ask your questions here and get support from our team and community.",
+    "members": []
+  }
+}
