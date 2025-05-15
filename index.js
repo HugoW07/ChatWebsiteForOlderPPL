@@ -84,6 +84,93 @@ const savePostsToFile = () => {
   fs.writeFileSync(POSTS_FILE, JSON.stringify(posts, null, 2), "utf8");
 };
 
+// Här lägger vi till nya konstanter för chatten
+const MESSAGES_FILE = path.join(__dirname, "messages.json");
+const ROOMS_FILE = path.join(__dirname, "rooms.json");
+const PRIVATE_MESSAGES_FILE = path.join(__dirname, "private_messages.json");
+
+// Läs in chattmeddelanden från filen "messages.json"
+let messages = {};
+try {
+  const data = fs.readFileSync(MESSAGES_FILE, "utf8");
+  messages = JSON.parse(data);
+} catch (error) {
+  console.log("Inga chattmeddelanden hittades, börjar från början.");
+  // Skapa grundstruktur för meddelanden per rum
+  messages = {
+    general: [],
+    announcements: [],
+    support: [],
+  };
+}
+
+// Funktion för att spara chattmeddelanden till filen "messages.json"
+const saveMessagesToFile = () => {
+  fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2), "utf8");
+};
+
+// Läs in privata chattmeddelanden från filen "private_messages.json"
+let privateMessages = {};
+try {
+  const data = fs.readFileSync(PRIVATE_MESSAGES_FILE, "utf8");
+  privateMessages = JSON.parse(data);
+} catch (error) {
+  console.log("Inga privata chattmeddelanden hittades, börjar från början.");
+  privateMessages = {};
+}
+
+// Funktion för att spara privata chattmeddelanden till filen "private_messages.json"
+const savePrivateMessagesToFile = () => {
+  fs.writeFileSync(
+    PRIVATE_MESSAGES_FILE,
+    JSON.stringify(privateMessages, null, 2),
+    "utf8"
+  );
+};
+
+// Funktion för att få privat rum-ID (konsekvent oavsett vem som initierade chatten)
+const getPrivateRoomId = (user1, user2) => {
+  return [user1, user2].sort().join("_private_");
+};
+
+// Läs in rum från filen "rooms.json"
+let rooms = {};
+try {
+  const data = fs.readFileSync(ROOMS_FILE, "utf8");
+  rooms = JSON.parse(data);
+} catch (error) {
+  console.log("Inga rumdata hittades, börjar från början.");
+  // Skapa grundstruktur för rum
+  rooms = {
+    general: {
+      name: "General",
+      description:
+        "Welcome to the General chat room. This is a space for all users to chat together.",
+      members: [],
+    },
+    announcements: {
+      name: "Announcements",
+      description:
+        "Important updates and announcements from the VintageChat team.",
+      members: [],
+    },
+    support: {
+      name: "Support",
+      description:
+        "Need help? Ask your questions here and get support from our team and community.",
+      members: [],
+    },
+  };
+}
+
+// Funktion för att spara rumdata till filen "rooms.json"
+const saveRoomsToFile = () => {
+  fs.writeFileSync(ROOMS_FILE, JSON.stringify(rooms, null, 2), "utf8");
+};
+
+// Hålla reda på online-användare
+let onlineUsers = [];
+
 // Mellanprogram för att kräva autentisering
 const requireAuth = (req, res, next) => {
   if (!req.session.userId) {
@@ -274,68 +361,6 @@ app.post("/api/posts", requireAuth, upload.single("image"), (req, res) => {
   }
 });
 
-// Här lägger vi till nya konstanter för chatten
-const MESSAGES_FILE = path.join(__dirname, "messages.json");
-const ROOMS_FILE = path.join(__dirname, "rooms.json");
-
-// Läs in chattmeddelanden från filen "messages.json"
-let messages = {};
-try {
-  const data = fs.readFileSync(MESSAGES_FILE, "utf8");
-  messages = JSON.parse(data);
-} catch (error) {
-  console.log("Inga chattmeddelanden hittades, börjar från början.");
-  // Skapa grundstruktur för meddelanden per rum
-  messages = {
-    general: [],
-    announcements: [],
-    support: [],
-  };
-}
-
-// Funktion för att spara chattmeddelanden till filen "messages.json"
-const saveMessagesToFile = () => {
-  fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2), "utf8");
-};
-
-// Läs in rum från filen "rooms.json"
-let rooms = {};
-try {
-  const data = fs.readFileSync(ROOMS_FILE, "utf8");
-  rooms = JSON.parse(data);
-} catch (error) {
-  console.log("Inga rumdata hittades, börjar från början.");
-  // Skapa grundstruktur för rum
-  rooms = {
-    general: {
-      name: "General",
-      description:
-        "Welcome to the General chat room. This is a space for all users to chat together.",
-      members: [],
-    },
-    announcements: {
-      name: "Announcements",
-      description:
-        "Important updates and announcements from the VintageChat team.",
-      members: [],
-    },
-    support: {
-      name: "Support",
-      description:
-        "Need help? Ask your questions here and get support from our team and community.",
-      members: [],
-    },
-  };
-}
-
-// Funktion för att spara rumdata till filen "rooms.json"
-const saveRoomsToFile = () => {
-  fs.writeFileSync(ROOMS_FILE, JSON.stringify(rooms, null, 2), "utf8");
-};
-
-// Hålla reda på online-användare
-let onlineUsers = [];
-
 // API-routes för chat
 
 // Hämta meddelanden för ett specifikt rum
@@ -438,6 +463,69 @@ app.get("/api/rooms/:room/members", (req, res) => {
     count: rooms[room].members.length,
     members: rooms[room].members,
   });
+});
+
+// Skicka ett nytt privat meddelande
+app.post("/api/messages/private", requireAuth, (req, res) => {
+  const { recipient, content } = req.body;
+  const sender = req.session.user.username;
+
+  if (!recipient || !content) {
+    return res.status(400).json({ error: "Mottagare och innehåll krävs" });
+  }
+
+  // Verifiera att mottagaren finns
+  const recipientUser = users.find((u) => u.username === recipient);
+  if (!recipientUser) {
+    return res.status(404).json({ error: "Mottagaren hittades inte" });
+  }
+
+  // Skapa ett unikt ID för det privata rummet (oavsett vem som initierade chatten)
+  const roomId = getPrivateRoomId(sender, recipient);
+
+  // Skapa rum-arrayen om den inte redan finns
+  if (!privateMessages[roomId]) {
+    privateMessages[roomId] = [];
+  }
+
+  const newMessage = {
+    id: Date.now().toString(),
+    username: sender,
+    content,
+    timestamp: new Date().toISOString(),
+  };
+
+  privateMessages[roomId].push(newMessage);
+
+  // Begränsa antalet meddelanden per rum för att undvika att filen blir för stor
+  if (privateMessages[roomId].length > 100) {
+    privateMessages[roomId] = privateMessages[roomId].slice(-100);
+  }
+
+  savePrivateMessagesToFile();
+
+  res.json(newMessage);
+});
+
+// Hämta privata meddelanden mellan användaren och en annan användare
+app.get("/api/messages/private/:username", requireAuth, (req, res) => {
+  const otherUser = req.params.username;
+  const currentUser = req.session.user.username;
+  const since = req.query.since ? parseInt(req.query.since) : 0;
+
+  // Skapa ett unikt ID för det privata rummet (oavsett vem som initierade chatten)
+  const roomId = getPrivateRoomId(currentUser, otherUser);
+
+  if (!privateMessages[roomId]) {
+    return res.json([]);
+  }
+
+  // Returnera endast meddelanden efter den angivna tidsstämpeln
+  const newMessages = privateMessages[roomId].filter((msg) => {
+    return new Date(msg.timestamp).getTime() > since;
+  });
+
+  res.json(newMessages);
 });
 
 // Servera uppladdade filer
