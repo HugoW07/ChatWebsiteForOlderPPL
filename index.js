@@ -345,6 +345,7 @@ app.post("/api/posts", requireAuth, upload.single("image"), (req, res) => {
     }
 
     const newPost = {
+      id: Date.now().toString(),
       user,
       content,
       image,
