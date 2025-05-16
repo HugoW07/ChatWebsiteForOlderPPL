@@ -15,12 +15,54 @@
   --card-background: white;
   --navbar-background: white;
   --footer-background: white;
+  --welcome-text-color: #333;
+  --post-section-bg: #f9f9f9;
+  --post-section-border: #ddd;
+  --post-section-shadow: rgba(0, 0, 0, 0.1);
+  --post-section-text: #555;
+  --post-section-heading: #333;
+  --form-bg: white;
+  --form-border: #ddd;
+  --textarea-bg: white;
+  --file-input-bg: #f0f0f0;
+  --file-input-border: #ccc;
+  --file-input-hover: #e0e0e0;
+  --file-name-color: #555;
+  --post-button-bg: #32cd32;
+  --post-button-hover: #94fbab;
+  --post-card-bg: white;
+  --post-card-border: #ddd;
+  --post-card-shadow: rgba(0, 0, 0, 0.1);
+  --post-card-heading: #333;
+  --post-card-text: #444;
+  --post-time-color: #777;
   /* Dark Mode Colors */
   --dark-background-color: #121212;
   --dark-text-color: #e0e0e0;
   --dark-card-background: #1e1e1e;
   --dark-navbar-background: #1e1e1e;
   --dark-footer-background: #1e1e1e;
+  --dark-welcome-text-color: #e0e0e0;
+  --dark-post-section-bg: #1e1e1e;
+  --dark-post-section-border: #333;
+  --dark-post-section-shadow: rgba(0, 0, 0, 0.3);
+  --dark-post-section-text: #bbb;
+  --dark-post-section-heading: #e0e0e0;
+  --dark-form-bg: #252525;
+  --dark-form-border: #444;
+  --dark-textarea-bg: #2c2c2c;
+  --dark-file-input-bg: #2c2c2c;
+  --dark-file-input-border: #444;
+  --dark-file-input-hover: #383838;
+  --dark-file-name-color: #bbb;
+  --dark-post-button-bg: #1a2c42;
+  --dark-post-button-hover: #32cd32;
+  --dark-post-card-bg: #252525;
+  --dark-post-card-border: #444;
+  --dark-post-card-shadow: rgba(0, 0, 0, 0.3);
+  --dark-post-card-heading: #e0e0e0;
+  --dark-post-card-text: #bbb;
+  --dark-post-time-color: #999;
 }
 
 body {
@@ -72,7 +114,7 @@ body {
   height: 100px;
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--paynes-gray);
+  border: 0px;
   border-radius: 8px;
   resize: vertical;
 }
@@ -133,32 +175,33 @@ body {
 }
 
 .post-section {
-  background-color: #f9f9f9;
+  background-color: var(--post-section-bg);
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px var(--post-section-shadow);
+  border: 1px solid var(--post-section-border);
 }
 
 .post-section h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--post-section-heading);
 }
 
 .post-section p {
   font-size: 16px;
   margin-bottom: 20px;
-  color: #555;
+  color: var(--post-section-text);
 }
 
 #postForm {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--form-bg);
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--form-border);
 }
 
 #postForm textarea {
@@ -169,6 +212,8 @@ body {
   margin-bottom: 15px;
   min-height: 100px;
   font-family: Verdana, sans-serif;
+  background-color: var(--form-bg);
+  color: var(--text-color);
 }
 
 .file-input-container {
@@ -178,15 +223,16 @@ body {
 }
 
 .file-input-label {
-  background-color: #f0f0f0;
+  background-color: var(--file-input-bg);
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 1px solid var(--file-input-border);
   margin-right: 10px;
   display: inline-flex;
   align-items: center;
+  color: var(--text-color);
 }
 
 .file-input-label img {
@@ -195,12 +241,12 @@ body {
 }
 
 .file-input-label:hover {
-  background-color: #e0e0e0;
+  background-color: var(--file-input-hover);
 }
 
 .file-name {
   font-size: 16px;
-  color: #555;
+  color: var(--file-name-color);
 }
 
 #postForm input[type="file"] {
@@ -215,7 +261,7 @@ body {
 #postForm button {
   padding: 15px;
   font-size: 18px;
-  background-color: #4e6a9b;
+  background-color: var(--post-button-bg);
   color: white;
   border: none;
   border-radius: 8px;
@@ -225,41 +271,41 @@ body {
 }
 
 #postForm button:hover {
-  background-color: #3a5278;
+  background-color: var(--post-button-hover);
 }
 
 .post-card {
-  background-color: white;
+  background-color: var(--post-card-bg);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px var(--post-card-shadow);
+  border: 1px solid var(--post-card-border);
 }
 
 .post-card h2 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--post-card-heading);
 }
 
 .post-card p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 15px;
-  color: #444;
+  color: var(--post-card-text);
 }
 
 .post-image {
   max-width: 100%;
   border-radius: 8px;
   margin: 10px 0;
-  border: 1px solid #eee;
+  border: 1px solid var(--post-section-border);
 }
 
 .post-time {
   font-size: 14px;
-  color: #777;
+  color: var(--post-time-color);
   margin-top: 10px;
 }
 
@@ -270,11 +316,18 @@ body {
 .welcome-section h1 {
   font-size: 28px;
   margin-bottom: 10px;
+  color: var(--welcome-text-color);
 }
 
 .welcome-section p {
   font-size: 18px;
-  color: #555;
+  color: var(--post-section-text);
+}
+
+/* Section titles */
+.content h2 {
+  color: var(--welcome-text-color);
+  margin-bottom: 20px;
 }
 
 /* Dark Mode Styles */
@@ -284,6 +337,27 @@ body.dark-mode {
   --card-background: var(--dark-card-background);
   --navbar-background: var(--dark-navbar-background);
   --footer-background: var(--dark-footer-background);
+  --welcome-text-color: var(--dark-text-color);
+  --post-section-bg: var(--dark-post-section-bg);
+  --post-section-border: var(--dark-post-section-border);
+  --post-section-shadow: var(--dark-post-section-shadow);
+  --post-section-text: var(--dark-post-section-text);
+  --post-section-heading: var(--dark-post-section-heading);
+  --form-bg: var(--dark-form-bg);
+  --form-border: var(--dark-form-border);
+  --textarea-bg: var(--dark-textarea-bg);
+  --file-input-bg: var(--dark-file-input-bg);
+  --file-input-border: var(--dark-file-input-border);
+  --file-input-hover: var(--dark-file-input-hover);
+  --file-name-color: var(--dark-file-name-color);
+  --post-button-bg: var(--dark-post-button-bg);
+  --post-button-hover: var(--dark-post-button-hover);
+  --post-card-bg: var(--dark-post-card-bg);
+  --post-card-border: var(--dark-post-card-border);
+  --post-card-shadow: var(--dark-post-card-shadow);
+  --post-card-heading: var(--dark-post-card-heading);
+  --post-card-text: var(--dark-post-card-text);
+  --post-time-color: var(--dark-post-time-color);
 }
 
 body.dark-mode .post-card {
@@ -297,14 +371,6 @@ body.dark-mode .post-card h2 {
 
 body.dark-mode .post-card p {
   color: var(--dark-text-color);
-}
-
-body.dark-mode #postForm button {
-  background-color: var(--dark-prussian-blue);
-}
-
-body.dark-mode #postForm button:hover {
-  background-color: var(--lime-green);
 }
 
 /* Media Queries */
@@ -340,7 +406,6 @@ body.dark-mode #postForm button:hover {
   #postForm textarea {
     width: 100%;
     height: 80px;
-    
   }
 
   #postForm button {

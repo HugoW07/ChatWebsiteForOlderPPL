@@ -159,29 +159,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      // File input display enhancement
-      document
-        .getElementById("image-upload")
-        .addEventListener("change", function (e) {
-          const fileName = e.target.files[0]
-            ? e.target.files[0].name
-            : "No file selected";
-          document.getElementById("file-name-display").textContent = fileName;
-        });
-
-      // High contrast toggle
-      document
-        .getElementById("highContrastToggle")
-        .addEventListener("click", function () {
-          document.body.classList.toggle("high-contrast");
-          const isHighContrast =
-            document.body.classList.contains("high-contrast");
-          this.textContent = isHighContrast
-            ? "Normal Contrast Mode"
-            : "High Contrast Mode";
-        });
-    </script>
   </body>
 </html>
