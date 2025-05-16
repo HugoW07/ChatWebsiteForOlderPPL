@@ -130,7 +130,7 @@
       <h2>Recent Posts</h2>
       <div class="post-feed" id="postFeed">
         <% posts.forEach(post => { %>
-        <div class="post-card">
+        <div class="post-card" data-post-id="<%= post.id %>">
           <h2><%= post.user %></h2>
           <p><%= post.content %></p>
           <% if (post.image) { %>

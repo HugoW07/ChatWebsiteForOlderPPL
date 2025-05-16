@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const postFeed = document.getElementById("postFeed");
   let postedIds = new Set(); // Track post IDs we've already displayed
 
+  // Initialize the postedIds set with IDs of posts that are already in the DOM
+  document.querySelectorAll(".post-card").forEach((postCard) => {
+    const postId = postCard.getAttribute("data-post-id");
+    if (postId) {
+      postedIds.add(postId);
+    }
+  });
+
   postForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -16,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         const post = await response.json();
         addPostToFeed(post);
-        postedIds.add(post.id); // Track that we've added this post
         event.target.reset();
 
         // Clear the file name display
@@ -38,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const postCard = document.createElement("div");
     postCard.className = "post-card";
+    postCard.setAttribute("data-post-id", post.id); // Add data attribute with post ID
 
     postCard.innerHTML = `
       <h2>${post.user}</h2>
@@ -68,6 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("/api/posts");
       if (response.ok) {
         const posts = await response.json();
+        // Sort posts by creation date (newest first)
+        posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         posts.forEach(addPostToFeed);
       }
     } catch (error) {
