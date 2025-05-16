@@ -132,6 +132,151 @@ body {
   border-radius: 8px;
 }
 
+.post-section {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.post-section p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+#postForm {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#postForm textarea {
+  padding: 15px;
+  font-size: 18px;
+  border: 0px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  min-height: 100px;
+  font-family: Verdana, sans-serif;
+}
+
+.file-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.file-input-label {
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.file-input-label img {
+  height: 20px;
+  margin-right: 8px;
+}
+
+.file-input-label:hover {
+  background-color: #e0e0e0;
+}
+
+.file-name {
+  font-size: 16px;
+  color: #555;
+}
+
+#postForm input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#postForm button {
+  padding: 15px;
+  font-size: 18px;
+  background-color: #4e6a9b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#postForm button:hover {
+  background-color: #3a5278;
+}
+
+.post-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.post-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.post-card p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.post-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+  border: 1px solid #eee;
+}
+
+.post-time {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.welcome-section {
+  margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  color: #555;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   --background-color: var(--dark-background-color);
@@ -195,6 +340,7 @@ body.dark-mode #postForm button:hover {
   #postForm textarea {
     width: 100%;
     height: 80px;
+    
   }
 
   #postForm button {
